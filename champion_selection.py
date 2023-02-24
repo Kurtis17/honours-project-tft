@@ -1133,34 +1133,33 @@ class UI_Champion_Selector_Window(object):
         self.selected_champion.setScaledContents(True)
         self.selected_champion.setAlignment(QtCore.Qt.AlignCenter)
         self.selected_champion.setObjectName("selected_champion")
-        self.label = QtWidgets.QLabel(champion_level_selector)
-        self.label.setGeometry(QtCore.QRect(750, 80, 101, 20))
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
+        self.selected_level = QtWidgets.QLabel(champion_level_selector)
+        self.selected_level.setGeometry(QtCore.QRect(750, 80, 101, 20))
+        self.selected_level.setAlignment(QtCore.Qt.AlignCenter)
+        self.selected_level.setObjectName("label")
         self.champion_tab.raise_()
         self.champion_name.raise_()
         self.selected_champion.raise_()
         self.next_button.raise_()
-        self.label.raise_()
+        self.selected_level.raise_()
 
         self.retranslate_ui_champion_selector_window(champion_level_selector)
         self.champion_tab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(champion_level_selector)
 
-        self.ashe_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ashe_square.tft_set8.png"))
-        self.blitz_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_blitzcrank_square.tft_set8.png"))
-        self.galio_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_galio_square.tft_set8.png"))
-        self.gangplank_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_gangplank_square.tft_set8.png"))
-        self.kayle_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kayle_square.tft_set8.png"))
-        self.lulu_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lulu_square.tft_set8.png"))
-        self.lux_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lux_square.tft_set8.png"))
-        self.nasus_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nasus_square.tft_set8.png"))
-        self.poppy_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_poppy_square.tft_set8.png"))
-        self.renekton_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_renekton_square.tft_set8.png"))
-        self.sylas_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sylas_square.tft_set8.png"))
-        self.talon_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_talon_square.tft_set8.png"))
-        self.wukong_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_wukong_square.tft_set8.png"))
-
+        self.ashe_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ashe_square.tft_set8.png", "Ashe"))
+        self.blitz_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_blitzcrank_square.tft_set8.png", "Blitzcrank"))
+        self.galio_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_galio_square.tft_set8.png", "Galio"))
+        self.gangplank_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_gangplank_square.tft_set8.png", "Gangplank"))
+        self.kayle_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kayle_square.tft_set8.png", "Kayle"))
+        self.lulu_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lulu_square.tft_set8.png", "Lulu"))
+        self.lux_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lux_square.tft_set8.png", "Lux"))
+        self.nasus_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nasus_square.tft_set8.png", "Nasus"))
+        self.poppy_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_poppy_square.tft_set8.png", "Poppy"))
+        self.renekton_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_renekton_square.tft_set8.png", "Renekton"))
+        self.sylas_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sylas_square.tft_set8.png", "Sylas"))
+        self.talon_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_talon_square.tft_set8.png", "Talon"))
+        self.wukong_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_wukong_square.tft_set8.png", "Wukong"))
 
     def retranslate_ui_champion_selector_window(self, champion_level_selector):
         _translate = QtCore.QCoreApplication.translate
@@ -1173,7 +1172,19 @@ class UI_Champion_Selector_Window(object):
         self.champion_name.setText(_translate("champion_level_selector", "Name"))
         self.next_button.setText(_translate("champion_level_selector", "Next"))
         self.selected_champion.setText(_translate("champion_level_selector", "selected champion"))
-        self.label.setText(_translate("champion_level_selector", "Lvl"))
+        self.selected_level.setText(_translate("champion_level_selector", "Lvl"))
 
-    def test(self, image_path):
-        self.selected_champion.setPixmap(QtGui.QPixmap(image_path))
+    def test(self, image_path, champion_name):
+        if self.champion_name.text() == champion_name:
+            if self.selected_level.text() == "Lvl":
+                self.selected_level.setText("Lvl 1")
+            elif self.selected_level.text() == "Lvl 1":
+                self.selected_level.setText("Lvl 2")
+            elif self.selected_level.text() == "Lvl 2":
+                self.selected_level.setText("Lvl 3")
+            elif self.selected_level.text() == "Lvl 3":
+                self.selected_level.setText("Lvl 1")
+        else:
+            self.selected_level.setText("Lvl 1")
+            self.champion_name.setText(champion_name)
+            self.selected_champion.setPixmap(QtGui.QPixmap(image_path))
