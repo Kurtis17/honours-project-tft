@@ -379,22 +379,22 @@ class UI_Champion_Selector_Window(object):
         self.annie_button.setIconSize(QtCore.QSize(75, 75))
         self.annie_button.setFlat(False)
         self.annie_button.setObjectName("annie_button")
-        self.camile_button = QtWidgets.QPushButton(self.tier_two)
-        self.camile_button.setGeometry(QtCore.QRect(130, 20, 82, 82))
-        self.camile_button.setStyleSheet("QPushButton {\n"
+        self.camille_button = QtWidgets.QPushButton(self.tier_two)
+        self.camille_button.setGeometry(QtCore.QRect(130, 20, 82, 82))
+        self.camille_button.setStyleSheet("QPushButton {\n"
         "background: #25b05c;\n"
         "}\n"
         "\n"
         "QPushButton:hover {\n"
         "background: white;\n"
         "}")
-        self.camile_button.setText("")
+        self.camille_button.setText("")
         icon14 = QtGui.QIcon()
         icon14.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_camille_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.camile_button.setIcon(icon14)
-        self.camile_button.setIconSize(QtCore.QSize(75, 75))
-        self.camile_button.setFlat(False)
-        self.camile_button.setObjectName("camile_button")
+        self.camille_button.setIcon(icon14)
+        self.camille_button.setIconSize(QtCore.QSize(75, 75))
+        self.camille_button.setFlat(False)
+        self.camille_button.setObjectName("camile_button")
         self.draven_button = QtWidgets.QPushButton(self.tier_two)
         self.draven_button.setGeometry(QtCore.QRect(240, 20, 82, 82))
         self.draven_button.setStyleSheet("QPushButton {\n"
@@ -980,22 +980,22 @@ class UI_Champion_Selector_Window(object):
         self.champion_tab.addTab(self.tier_four, "")
         self.tier_five = QtWidgets.QWidget()
         self.tier_five.setObjectName("tier_five")
-        self.alphelios_button = QtWidgets.QPushButton(self.tier_five)
-        self.alphelios_button.setGeometry(QtCore.QRect(20, 20, 82, 82))
-        self.alphelios_button.setStyleSheet("QPushButton {\n"
+        self.aphelios_button = QtWidgets.QPushButton(self.tier_five)
+        self.aphelios_button.setGeometry(QtCore.QRect(20, 20, 82, 82))
+        self.aphelios_button.setStyleSheet("QPushButton {\n"
         "background: #f9b428;\n"
         "}\n"
         "\n"
         "QPushButton:hover {\n"
         "background: white;\n"
         "}")
-        self.alphelios_button.setText("")
+        self.aphelios_button.setText("")
         icon51 = QtGui.QIcon()
         icon51.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aphelios_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.alphelios_button.setIcon(icon51)
-        self.alphelios_button.setIconSize(QtCore.QSize(75, 75))
-        self.alphelios_button.setFlat(False)
-        self.alphelios_button.setObjectName("alphelios_button")
+        self.aphelios_button.setIcon(icon51)
+        self.aphelios_button.setIconSize(QtCore.QSize(75, 75))
+        self.aphelios_button.setFlat(False)
+        self.aphelios_button.setObjectName("alphelios_button")
         self.fiddlesticks_button = QtWidgets.QPushButton(self.tier_five)
         self.fiddlesticks_button.setGeometry(QtCore.QRect(130, 20, 82, 82))
         self.fiddlesticks_button.setStyleSheet("QPushButton {\n"
@@ -1060,22 +1060,22 @@ class UI_Champion_Selector_Window(object):
         self.leona_button.setIconSize(QtCore.QSize(75, 75))
         self.leona_button.setFlat(False)
         self.leona_button.setObjectName("leona_button")
-        self.mordekaiser = QtWidgets.QPushButton(self.tier_five)
-        self.mordekaiser.setGeometry(QtCore.QRect(460, 20, 82, 82))
-        self.mordekaiser.setStyleSheet("QPushButton {\n"
+        self.mordekaiser_button = QtWidgets.QPushButton(self.tier_five)
+        self.mordekaiser_button.setGeometry(QtCore.QRect(460, 20, 82, 82))
+        self.mordekaiser_button.setStyleSheet("QPushButton {\n"
         "background: #f9b428;\n"
         "}\n"
         "\n"
         "QPushButton:hover {\n"
         "background: white;\n"
         "}")
-        self.mordekaiser.setText("")
+        self.mordekaiser_button.setText("")
         icon56 = QtGui.QIcon()
         icon56.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_mordekaiser_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.mordekaiser.setIcon(icon56)
-        self.mordekaiser.setIconSize(QtCore.QSize(75, 75))
-        self.mordekaiser.setFlat(False)
-        self.mordekaiser.setObjectName("mordekaiser")
+        self.mordekaiser_button.setIcon(icon56)
+        self.mordekaiser_button.setIconSize(QtCore.QSize(75, 75))
+        self.mordekaiser_button.setFlat(False)
+        self.mordekaiser_button.setObjectName("mordekaiser")
         self.nunu_button = QtWidgets.QPushButton(self.tier_five)
         self.nunu_button.setGeometry(QtCore.QRect(570, 20, 82, 82))
         self.nunu_button.setStyleSheet("QPushButton {\n"
@@ -1160,6 +1160,56 @@ class UI_Champion_Selector_Window(object):
         self.sylas_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sylas_square.tft_set8.png", "Sylas"))
         self.talon_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_talon_square.tft_set8.png", "Talon"))
         self.wukong_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_wukong_square.tft_set8.png", "Wukong"))
+
+        self.annie_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_annie_square.tft_set8.png", "Annie"))
+        self.camille_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_camille_square.tft_set8.png", "Camille"))
+        self.draven_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_draven_square.tft_set8.png", "Draven"))
+        self.ezreal_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ezreal_square.tft_set8.png", "Ezreal"))
+        self.fiora_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_fiora_square.tft_set8.png", "Fiora"))
+        self.jinx_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_jinx_square.tft_set8.png", "Jinx"))
+        self.leesin_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leesin_square.tft_set8.png", "Lee Sin"))
+        self.malphite_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_malphite_square.tft_set8.png", "Malphite"))
+        self.rell_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_rell_square.tft_set8.png", "Rell"))
+        self.sivir_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sivir_square.tft_set8.png", "Sivir"))
+        self.vi_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_vi_square.tft_set8.png", "Vi"))
+        self.yasuo_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_yasuo_square.tft_set8.png", "Yasuo"))
+        self.yuumi_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_yuumi_square.tft_set8.png", "Yuumi"))
+
+        self.alistar_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_alistar_square.tft_set8.png", "Alistar"))
+        self.chogath_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_chogath_square.tft_set8.png", "Cho'gath"))
+        self.jax_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_jax_square.tft_set8.png", "Jax"))
+        self.kaisa_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kaisa_square.tft_set8.png", "Kaisa"))
+        self.leblanc_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leblanc_square.tft_set8.png", "Leblanc"))
+        self.nilah_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nilah_square.tft_set8.png", "Nilah"))
+        self.rammus_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_rammus_square.tft_set8.png", "Rammus"))
+        self.riven_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_riven_square.tft_set8.png", "Riven"))
+        self.senna_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_senna_square.tft_set8.png", "Senna"))
+        self.sona_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sona_square.tft_set8.png", "Sona"))
+        self.vayne_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_vayne_square.tft_set8.png", "Vayne"))
+        self.velkoz_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_velkoz_square.tft_set8.png", "Velkoz"))
+        self.zoe_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zoe_square.tft_set8.png", "Zoe"))
+
+        self.aurelionsol_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aurelionsol_square.tft_set8.png", "Aurelion Sol"))
+        self.belveth_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_belveth_square.tft_set8.png", "Bel'Veth"))
+        self.ekko_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ekko_square.tft_set8.png", "Ekko"))
+        self.missfortune_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_missfortune_square.tft_set8.png", "Miss Fortune"))
+        self.samira_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_samira_square.tft_set8.png", "Samira"))
+        self.sejuani_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sejuani_square.tft_set8.png", "Sejuani"))
+        self.sett_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sett_square.tft_set8.png", "Sett"))
+        self.leblanc_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leblanc_square.tft_set8.png", "Leblanc"))
+        self.taliyah_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_taliyah_square.tft_set8.png", "Taliyah"))
+        self.viego_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_viego_square.tft_set8.png", "Viego"))
+        self.zac_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zac_square.tft_set8.png", "Zac"))
+        self.zed_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zed_square.tft_set8.png", "Zed"))
+
+        self.aphelios_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aphelios_square.tft_set8.png", "Aphelios"))
+        self.fiddlesticks_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_fiddlesticks_square.tft_set8.png", "Fiddlesticks"))
+        self.janna_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_janna_square.tft_set8.png", "Janna"))
+        self.leona_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leona_square.tft_set8.png", "Leona"))
+        self.mordekaiser_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_mordekaiser_square.tft_set8.png", "Mordekaiser"))
+        self.nunu_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nunu_square.tft_set8.png", "Nunu & Willump"))
+        self.syndra_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_syndra_square.tft_set8.png", "Syndra"))
+        self.urgot_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_urgot_square.tft_set8.png", "Urgot"))
 
     def retranslate_ui_champion_selector_window(self, champion_level_selector):
         _translate = QtCore.QCoreApplication.translate
