@@ -1,19 +1,18 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from champion_selection import UI_Champion_Selector_Window
 
-class UI_Predict_Window(object):
+class UI_Board_Window(object):
     def open_champion_window(self, current_window, position):
         self.window = QtWidgets.QMainWindow()
         self.ui = UI_Champion_Selector_Window()
         self.ui.setup_ui_champion_selector_window(self.window, current_window, position)
         self.window.show()
-        ##current_window.hide()
 
-    def setup_ui_predict_window(self, predict_window, main_window):
-        predict_window.setObjectName("predict_window")
-        predict_window.resize(850, 925)
-        predict_window.setMinimumSize(QtCore.QSize(850, 900))
-        predict_window.setMaximumSize(QtCore.QSize(850, 16777215))
+    def setup_ui_board_window(self, board_window, main_window):
+        board_window.setObjectName("board_window")
+        board_window.resize(850, 925)
+        board_window.setMinimumSize(QtCore.QSize(850, 900))
+        board_window.setMaximumSize(QtCore.QSize(850, 16777215))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -159,9 +158,9 @@ class UI_Predict_Window(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
-        predict_window.setPalette(palette)
-        predict_window.setStyleSheet("")
-        self.centralwidget = QtWidgets.QWidget(predict_window)
+        board_window.setPalette(palette)
+        board_window.setStyleSheet("")
+        self.centralwidget = QtWidgets.QWidget(board_window)
         self.centralwidget.setObjectName("centralwidget")
         self.line = QtWidgets.QFrame(self.centralwidget)
         self.line.setGeometry(QtCore.QRect(0, 440, 850, 20))
@@ -181,550 +180,550 @@ class UI_Predict_Window(object):
         self.enemy_unit_1_1 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_1_1.setGeometry(QtCore.QRect(20, 20, 80, 80))
         self.enemy_unit_1_1.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_1_1.setText("")
         self.enemy_unit_1_1.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_1_1.setObjectName("enemy_unit_1_1")
         self.enemy_unit_1_2 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_1_2.setGeometry(QtCore.QRect(120, 20, 82, 82))
         self.enemy_unit_1_2.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_1_2.setText("")
         self.enemy_unit_1_2.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_1_2.setObjectName("enemy_unit_1_2")
         self.enemy_unit_1_3 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_1_3.setGeometry(QtCore.QRect(220, 20, 82, 82))
         self.enemy_unit_1_3.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_1_3.setText("")
         self.enemy_unit_1_3.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_1_3.setObjectName("enemy_unit_1_3")
         self.enemy_unit_1_4 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_1_4.setGeometry(QtCore.QRect(320, 20, 82, 82))
         self.enemy_unit_1_4.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_1_4.setText("")
         self.enemy_unit_1_4.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_1_4.setObjectName("enemy_unit_1_4")
         self.enemy_unit_1_5 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_1_5.setGeometry(QtCore.QRect(420, 20, 82, 82))
         self.enemy_unit_1_5.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_1_5.setText("")
         self.enemy_unit_1_5.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_1_5.setObjectName("enemy_unit_1_5")
         self.enemy_unit_1_6 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_1_6.setGeometry(QtCore.QRect(520, 20, 82, 82))
         self.enemy_unit_1_6.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_1_6.setText("")
         self.enemy_unit_1_6.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_1_6.setObjectName("enemy_unit_1_6")
         self.enemy_unit_1_7 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_1_7.setGeometry(QtCore.QRect(620, 20, 82, 82))
         self.enemy_unit_1_7.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_1_7.setText("")
         self.enemy_unit_1_7.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_1_7.setObjectName("enemy_unit_1_7")
         self.enemy_unit_2_1 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_2_1.setGeometry(QtCore.QRect(70, 130, 82, 82))
         self.enemy_unit_2_1.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_2_1.setText("")
         self.enemy_unit_2_1.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_2_1.setObjectName("enemy_unit_2_1")
         self.enemy_unit_2_2 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_2_2.setGeometry(QtCore.QRect(170, 130, 82, 82))
         self.enemy_unit_2_2.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_2_2.setText("")
         self.enemy_unit_2_2.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_2_2.setObjectName("enemy_unit_2_2")
         self.enemy_unit_2_3 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_2_3.setGeometry(QtCore.QRect(270, 130, 82, 82))
         self.enemy_unit_2_3.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_2_3.setText("")
         self.enemy_unit_2_3.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_2_3.setObjectName("enemy_unit_2_3")
         self.enemy_unit_2_4 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_2_4.setGeometry(QtCore.QRect(370, 130, 82, 82))
         self.enemy_unit_2_4.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_2_4.setText("")
         self.enemy_unit_2_4.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_2_4.setObjectName("enemy_unit_2_4")
         self.enemy_unit_2_5 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_2_5.setGeometry(QtCore.QRect(470, 130, 82, 82))
         self.enemy_unit_2_5.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_2_5.setText("")
         self.enemy_unit_2_5.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_2_5.setObjectName("enemy_unit_2_5")
         self.enemy_unit_2_6 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_2_6.setGeometry(QtCore.QRect(570, 130, 82, 82))
         self.enemy_unit_2_6.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_2_6.setText("")
         self.enemy_unit_2_6.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_2_6.setObjectName("enemy_unit_2_6")
         self.enemy_unit_2_7 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_2_7.setGeometry(QtCore.QRect(670, 130, 82, 82))
         self.enemy_unit_2_7.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_2_7.setText("")
         self.enemy_unit_2_7.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_2_7.setObjectName("enemy_unit_2_7")
         self.enemy_unit_3_1 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_3_1.setGeometry(QtCore.QRect(20, 240, 82, 82))
         self.enemy_unit_3_1.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_3_1.setText("")
         self.enemy_unit_3_1.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_3_1.setObjectName("enemy_unit_3_1")
         self.enemy_unit_3_2 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_3_2.setGeometry(QtCore.QRect(120, 240, 82, 82))
         self.enemy_unit_3_2.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_3_2.setText("")
         self.enemy_unit_3_2.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_3_2.setObjectName("enemy_unit_3_2")
         self.enemy_unit_3_3 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_3_3.setGeometry(QtCore.QRect(220, 240, 82, 82))
         self.enemy_unit_3_3.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_3_3.setText("")
         self.enemy_unit_3_3.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_3_3.setObjectName("enemy_unit_3_3")
         self.enemy_unit_3_4 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_3_4.setGeometry(QtCore.QRect(320, 240, 82, 82))
         self.enemy_unit_3_4.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_3_4.setText("")
         self.enemy_unit_3_4.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_3_4.setObjectName("enemy_unit_3_4")
         self.enemy_unit_3_5 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_3_5.setGeometry(QtCore.QRect(420, 240, 82, 82))
         self.enemy_unit_3_5.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_3_5.setText("")
         self.enemy_unit_3_5.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_3_5.setObjectName("enemy_unit_3_5")
         self.enemy_unit_3_6 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_3_6.setGeometry(QtCore.QRect(520, 240, 82, 82))
         self.enemy_unit_3_6.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_3_6.setText("")
         self.enemy_unit_3_6.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_3_6.setObjectName("enemy_unit_3_6")
         self.enemy_unit_3_7 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_3_7.setGeometry(QtCore.QRect(620, 240, 82, 82))
         self.enemy_unit_3_7.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_3_7.setText("")
         self.enemy_unit_3_7.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_3_7.setObjectName("enemy_unit_3_7")
         self.enemy_unit_4_1 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_4_1.setGeometry(QtCore.QRect(70, 350, 82, 82))
         self.enemy_unit_4_1.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_4_1.setText("")
         self.enemy_unit_4_1.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_4_1.setObjectName("enemy_unit_4_1")
         self.enemy_unit_4_6 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_4_6.setGeometry(QtCore.QRect(570, 350, 82, 82))
         self.enemy_unit_4_6.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_4_6.setText("")
         self.enemy_unit_4_6.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_4_6.setObjectName("enemy_unit_4_6")
         self.enemy_unit_4_4 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_4_4.setGeometry(QtCore.QRect(370, 350, 82, 82))
         self.enemy_unit_4_4.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_4_4.setText("")
         self.enemy_unit_4_4.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_4_4.setObjectName("enemy_unit_4_4")
         self.enemy_unit_4_2 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_4_2.setGeometry(QtCore.QRect(170, 350, 82, 82))
         self.enemy_unit_4_2.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_4_2.setText("")
         self.enemy_unit_4_2.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_4_2.setObjectName("enemy_unit_4_2")
         self.enemy_unit_4_7 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_4_7.setGeometry(QtCore.QRect(670, 350, 82, 82))
         self.enemy_unit_4_7.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_4_7.setText("")
         self.enemy_unit_4_7.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_4_7.setObjectName("enemy_unit_4_7")
         self.enemy_unit_4_5 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_4_5.setGeometry(QtCore.QRect(470, 350, 82, 82))
         self.enemy_unit_4_5.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_4_5.setText("")
         self.enemy_unit_4_5.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_4_5.setObjectName("enemy_unit_4_5")
         self.enemy_unit_4_3 = QtWidgets.QPushButton(self.centralwidget)
         self.enemy_unit_4_3.setGeometry(QtCore.QRect(270, 350, 82, 82))
         self.enemy_unit_4_3.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                          "background: #123040\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: #195778;\n"
+                                          "}")
         self.enemy_unit_4_3.setText("")
         self.enemy_unit_4_3.setIconSize(QtCore.QSize(75, 75))
         self.enemy_unit_4_3.setObjectName("enemy_unit_4_3")
         self.user_unit_1_7 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_1_7.setGeometry(QtCore.QRect(620, 470, 82, 82))
         self.user_unit_1_7.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_1_7.setText("")
         self.user_unit_1_7.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_1_7.setObjectName("user_unit_1_7")
         self.user_unit_4_7 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_4_7.setGeometry(QtCore.QRect(670, 800, 82, 82))
         self.user_unit_4_7.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_4_7.setText("")
         self.user_unit_4_7.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_4_7.setObjectName("user_unit_4_7")
         self.user_unit_1_3 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_1_3.setGeometry(QtCore.QRect(220, 470, 82, 82))
         self.user_unit_1_3.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_1_3.setText("")
         self.user_unit_1_3.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_1_3.setObjectName("user_unit_1_3")
         self.user_unit_3_6 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_3_6.setGeometry(QtCore.QRect(520, 690, 82, 82))
         self.user_unit_3_6.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_3_6.setText("")
         self.user_unit_3_6.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_3_6.setObjectName("user_unit_3_6")
         self.user_unit_1_6 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_1_6.setGeometry(QtCore.QRect(520, 470, 82, 82))
         self.user_unit_1_6.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_1_6.setText("")
         self.user_unit_1_6.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_1_6.setObjectName("user_unit_1_6")
         self.user_unit_2_1 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_2_1.setGeometry(QtCore.QRect(70, 580, 82, 82))
         self.user_unit_2_1.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_2_1.setText("")
         self.user_unit_2_1.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_2_1.setObjectName("user_unit_2_1")
         self.user_unit_2_5 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_2_5.setGeometry(QtCore.QRect(470, 580, 82, 82))
         self.user_unit_2_5.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_2_5.setText("")
         self.user_unit_2_5.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_2_5.setObjectName("user_unit_2_5")
         self.user_unit_4_4 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_4_4.setGeometry(QtCore.QRect(370, 800, 82, 82))
         self.user_unit_4_4.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_4_4.setText("")
         self.user_unit_4_4.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_4_4.setObjectName("user_unit_4_4")
         self.user_unit_4_1 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_4_1.setGeometry(QtCore.QRect(70, 800, 82, 82))
         self.user_unit_4_1.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_4_1.setText("")
         self.user_unit_4_1.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_4_1.setObjectName("user_unit_4_1")
         self.user_unit_4_5 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_4_5.setGeometry(QtCore.QRect(470, 800, 82, 82))
         self.user_unit_4_5.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_4_5.setText("")
         self.user_unit_4_5.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_4_5.setObjectName("user_unit_4_5")
         self.user_unit_1_2 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_1_2.setGeometry(QtCore.QRect(120, 470, 82, 82))
         self.user_unit_1_2.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_1_2.setText("")
         self.user_unit_1_2.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_1_2.setObjectName("user_unit_1_2")
         self.user_unit_3_5 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_3_5.setGeometry(QtCore.QRect(420, 690, 82, 82))
         self.user_unit_3_5.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_3_5.setText("")
         self.user_unit_3_5.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_3_5.setObjectName("user_unit_3_5")
         self.user_unit_2_4 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_2_4.setGeometry(QtCore.QRect(370, 580, 82, 82))
         self.user_unit_2_4.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_2_4.setText("")
         self.user_unit_2_4.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_2_4.setObjectName("user_unit_2_4")
         self.user_unit_2_3 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_2_3.setGeometry(QtCore.QRect(270, 580, 82, 82))
         self.user_unit_2_3.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_2_3.setText("")
         self.user_unit_2_3.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_2_3.setObjectName("user_unit_2_3")
         self.user_unit_2_6 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_2_6.setGeometry(QtCore.QRect(570, 580, 82, 82))
         self.user_unit_2_6.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_2_6.setText("")
         self.user_unit_2_6.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_2_6.setObjectName("user_unit_2_6")
         self.user_unit_2_7 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_2_7.setGeometry(QtCore.QRect(670, 580, 82, 82))
         self.user_unit_2_7.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_2_7.setText("")
         self.user_unit_2_7.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_2_7.setObjectName("user_unit_2_7")
         self.user_unit_4_2 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_4_2.setGeometry(QtCore.QRect(170, 800, 82, 82))
         self.user_unit_4_2.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_4_2.setText("")
         self.user_unit_4_2.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_4_2.setObjectName("user_unit_4_2")
         self.user_unit_3_1 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_3_1.setGeometry(QtCore.QRect(20, 690, 82, 82))
         self.user_unit_3_1.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_3_1.setText("")
         self.user_unit_3_1.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_3_1.setObjectName("user_unit_3_1")
         self.user_unit_2_2 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_2_2.setGeometry(QtCore.QRect(170, 580, 82, 82))
         self.user_unit_2_2.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_2_2.setText("")
         self.user_unit_2_2.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_2_2.setObjectName("user_unit_2_2")
         self.user_unit_3_3 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_3_3.setGeometry(QtCore.QRect(220, 690, 82, 82))
         self.user_unit_3_3.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_3_3.setText("")
         self.user_unit_3_3.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_3_3.setObjectName("user_unit_3_3")
         self.user_unit_4_6 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_4_6.setGeometry(QtCore.QRect(570, 800, 82, 82))
         self.user_unit_4_6.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_4_6.setText("")
         self.user_unit_4_6.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_4_6.setObjectName("user_unit_4_6")
         self.user_unit_1_5 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_1_5.setGeometry(QtCore.QRect(420, 470, 82, 82))
         self.user_unit_1_5.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_1_5.setText("")
         self.user_unit_1_5.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_1_5.setObjectName("user_unit_1_5")
@@ -732,66 +731,66 @@ class UI_Predict_Window(object):
         self.user_unit_1_1.setGeometry(QtCore.QRect(20, 470, 82, 82))
         self.user_unit_1_1.setAutoFillBackground(False)
         self.user_unit_1_1.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_1_1.setText("")
         self.user_unit_1_1.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_1_1.setObjectName("user_unit_1_1")
         self.user_unit_3_2 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_3_2.setGeometry(QtCore.QRect(120, 690, 82, 82))
         self.user_unit_3_2.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_3_2.setText("")
         self.user_unit_3_2.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_3_2.setObjectName("user_unit_3_2")
         self.user_unit_1_4 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_1_4.setGeometry(QtCore.QRect(320, 470, 82, 82))
         self.user_unit_1_4.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_1_4.setText("")
         self.user_unit_1_4.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_1_4.setObjectName("user_unit_1_4")
         self.user_unit_3_7 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_3_7.setGeometry(QtCore.QRect(620, 690, 82, 82))
         self.user_unit_3_7.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_3_7.setText("")
         self.user_unit_3_7.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_3_7.setObjectName("user_unit_3_7")
         self.user_unit_3_4 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_3_4.setGeometry(QtCore.QRect(320, 690, 82, 82))
         self.user_unit_3_4.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_3_4.setText("")
         self.user_unit_3_4.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_3_4.setObjectName("user_unit_3_4")
         self.user_unit_4_3 = QtWidgets.QPushButton(self.centralwidget)
         self.user_unit_4_3.setGeometry(QtCore.QRect(270, 800, 82, 82))
         self.user_unit_4_3.setStyleSheet("QPushButton{\n"
-        "background: #123040\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: #195778;\n"
-        "}")
+                                         "background: #123040\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "background: #195778;\n"
+                                         "}")
         self.user_unit_4_3.setText("")
         self.user_unit_4_3.setIconSize(QtCore.QSize(75, 75))
         self.user_unit_4_3.setObjectName("user_unit_4_3")
@@ -2139,25 +2138,25 @@ class UI_Predict_Window(object):
         self.item_one_56.setText("")
         self.item_one_56.setScaledContents(True)
         self.item_one_56.setObjectName("item_one_56")
-        predict_window.setCentralWidget(self.centralwidget)
-        self.menu_bar = QtWidgets.QMenuBar(predict_window)
+        board_window.setCentralWidget(self.centralwidget)
+        self.menu_bar = QtWidgets.QMenuBar(board_window)
         self.menu_bar.setGeometry(QtCore.QRect(0, 0, 850, 21))
         self.menu_bar.setObjectName("menu_bar")
         self.menu_menu = QtWidgets.QMenu(self.menu_bar)
         self.menu_menu.setObjectName("menu_menu")
-        predict_window.setMenuBar(self.menu_bar)
-        self.statusbar = QtWidgets.QStatusBar(predict_window)
+        board_window.setMenuBar(self.menu_bar)
+        self.statusbar = QtWidgets.QStatusBar(board_window)
         self.statusbar.setObjectName("statusbar")
-        predict_window.setStatusBar(self.statusbar)
-        self.action_save_board = QtWidgets.QAction(predict_window)
+        board_window.setStatusBar(self.statusbar)
+        self.action_save_board = QtWidgets.QAction(board_window)
         self.action_save_board.setObjectName("action_save_board")
-        self.action_load_board = QtWidgets.QAction(predict_window)
+        self.action_load_board = QtWidgets.QAction(board_window)
         self.action_load_board.setObjectName("action_load_board")
-        self.action_clear_board = QtWidgets.QAction(predict_window)
+        self.action_clear_board = QtWidgets.QAction(board_window)
         self.action_clear_board.setObjectName("action_clear_board")
-        self.actionMain_Menu = QtWidgets.QAction(predict_window)
+        self.actionMain_Menu = QtWidgets.QAction(board_window)
         self.actionMain_Menu.setObjectName("actionMain_Menu")
-        self.actionMain_Menu = QtWidgets.QAction(predict_window)
+        self.actionMain_Menu = QtWidgets.QAction(board_window)
         self.actionMain_Menu.setObjectName("actionMain_Menu")
         self.menu_menu.addAction(self.action_save_board)
         self.menu_menu.addAction(self.action_load_board)
@@ -2166,97 +2165,97 @@ class UI_Predict_Window(object):
         self.menu_menu.addAction(self.actionMain_Menu)
         self.menu_bar.addAction(self.menu_menu.menuAction())
 
-        self.retranslate_ui_predict_window(predict_window)
-        QtCore.QMetaObject.connectSlotsByName(predict_window)
+        self.retranslate_ui_board_window(board_window)
+        QtCore.QMetaObject.connectSlotsByName(board_window)
 
-        self.enemy_unit_1_1.clicked.connect(lambda: self.unit_clicked(predict_window, "1,1"))
-        self.enemy_unit_1_2.clicked.connect(lambda: self.unit_clicked(predict_window, "1,2"))
-        self.enemy_unit_1_3.clicked.connect(lambda: self.unit_clicked(predict_window, "1,3"))
-        self.enemy_unit_1_4.clicked.connect(lambda: self.unit_clicked(predict_window, "1,4"))
-        self.enemy_unit_1_5.clicked.connect(lambda: self.unit_clicked(predict_window, "1,5"))
-        self.enemy_unit_1_6.clicked.connect(lambda: self.unit_clicked(predict_window, "1,6"))
-        self.enemy_unit_1_7.clicked.connect(lambda: self.unit_clicked(predict_window, "1,7"))
+        self.enemy_unit_1_1.clicked.connect(lambda: self.unit_clicked(board_window, "1,1"))
+        self.enemy_unit_1_2.clicked.connect(lambda: self.unit_clicked(board_window, "1,2"))
+        self.enemy_unit_1_3.clicked.connect(lambda: self.unit_clicked(board_window, "1,3"))
+        self.enemy_unit_1_4.clicked.connect(lambda: self.unit_clicked(board_window, "1,4"))
+        self.enemy_unit_1_5.clicked.connect(lambda: self.unit_clicked(board_window, "1,5"))
+        self.enemy_unit_1_6.clicked.connect(lambda: self.unit_clicked(board_window, "1,6"))
+        self.enemy_unit_1_7.clicked.connect(lambda: self.unit_clicked(board_window, "1,7"))
 
-        self.enemy_unit_2_1.clicked.connect(lambda: self.unit_clicked(predict_window, "2,1"))
-        self.enemy_unit_2_2.clicked.connect(lambda: self.unit_clicked(predict_window, "2,2"))
-        self.enemy_unit_2_3.clicked.connect(lambda: self.unit_clicked(predict_window, "2,3"))
-        self.enemy_unit_2_4.clicked.connect(lambda: self.unit_clicked(predict_window, "2,4"))
-        self.enemy_unit_2_5.clicked.connect(lambda: self.unit_clicked(predict_window, "2,5"))
-        self.enemy_unit_2_6.clicked.connect(lambda: self.unit_clicked(predict_window, "2,6"))
-        self.enemy_unit_2_7.clicked.connect(lambda: self.unit_clicked(predict_window, "2,7"))
+        self.enemy_unit_2_1.clicked.connect(lambda: self.unit_clicked(board_window, "2,1"))
+        self.enemy_unit_2_2.clicked.connect(lambda: self.unit_clicked(board_window, "2,2"))
+        self.enemy_unit_2_3.clicked.connect(lambda: self.unit_clicked(board_window, "2,3"))
+        self.enemy_unit_2_4.clicked.connect(lambda: self.unit_clicked(board_window, "2,4"))
+        self.enemy_unit_2_5.clicked.connect(lambda: self.unit_clicked(board_window, "2,5"))
+        self.enemy_unit_2_6.clicked.connect(lambda: self.unit_clicked(board_window, "2,6"))
+        self.enemy_unit_2_7.clicked.connect(lambda: self.unit_clicked(board_window, "2,7"))
 
-        self.enemy_unit_3_1.clicked.connect(lambda: self.unit_clicked(predict_window, "3,1"))
-        self.enemy_unit_3_2.clicked.connect(lambda: self.unit_clicked(predict_window, "3,2"))
-        self.enemy_unit_3_3.clicked.connect(lambda: self.unit_clicked(predict_window, "3,3"))
-        self.enemy_unit_3_4.clicked.connect(lambda: self.unit_clicked(predict_window, "3,4"))
-        self.enemy_unit_3_5.clicked.connect(lambda: self.unit_clicked(predict_window, "3,5"))
-        self.enemy_unit_3_6.clicked.connect(lambda: self.unit_clicked(predict_window, "3,6"))
-        self.enemy_unit_3_7.clicked.connect(lambda: self.unit_clicked(predict_window, "3,7"))
+        self.enemy_unit_3_1.clicked.connect(lambda: self.unit_clicked(board_window, "3,1"))
+        self.enemy_unit_3_2.clicked.connect(lambda: self.unit_clicked(board_window, "3,2"))
+        self.enemy_unit_3_3.clicked.connect(lambda: self.unit_clicked(board_window, "3,3"))
+        self.enemy_unit_3_4.clicked.connect(lambda: self.unit_clicked(board_window, "3,4"))
+        self.enemy_unit_3_5.clicked.connect(lambda: self.unit_clicked(board_window, "3,5"))
+        self.enemy_unit_3_6.clicked.connect(lambda: self.unit_clicked(board_window, "3,6"))
+        self.enemy_unit_3_7.clicked.connect(lambda: self.unit_clicked(board_window, "3,7"))
 
-        self.enemy_unit_4_1.clicked.connect(lambda: self.unit_clicked(predict_window, "4,1"))
-        self.enemy_unit_4_2.clicked.connect(lambda: self.unit_clicked(predict_window, "4,2"))
-        self.enemy_unit_4_3.clicked.connect(lambda: self.unit_clicked(predict_window, "4,3"))
-        self.enemy_unit_4_4.clicked.connect(lambda: self.unit_clicked(predict_window, "4,4"))
-        self.enemy_unit_4_5.clicked.connect(lambda: self.unit_clicked(predict_window, "4,5"))
-        self.enemy_unit_4_6.clicked.connect(lambda: self.unit_clicked(predict_window, "4,6"))
-        self.enemy_unit_4_7.clicked.connect(lambda: self.unit_clicked(predict_window, "4,7"))
+        self.enemy_unit_4_1.clicked.connect(lambda: self.unit_clicked(board_window, "4,1"))
+        self.enemy_unit_4_2.clicked.connect(lambda: self.unit_clicked(board_window, "4,2"))
+        self.enemy_unit_4_3.clicked.connect(lambda: self.unit_clicked(board_window, "4,3"))
+        self.enemy_unit_4_4.clicked.connect(lambda: self.unit_clicked(board_window, "4,4"))
+        self.enemy_unit_4_5.clicked.connect(lambda: self.unit_clicked(board_window, "4,5"))
+        self.enemy_unit_4_6.clicked.connect(lambda: self.unit_clicked(board_window, "4,6"))
+        self.enemy_unit_4_7.clicked.connect(lambda: self.unit_clicked(board_window, "4,7"))
 
-        self.user_unit_1_1.clicked.connect(lambda: self.unit_clicked(predict_window, "5,1"))
-        self.user_unit_1_2.clicked.connect(lambda: self.unit_clicked(predict_window, "5,2"))
-        self.user_unit_1_3.clicked.connect(lambda: self.unit_clicked(predict_window, "5,3"))
-        self.user_unit_1_4.clicked.connect(lambda: self.unit_clicked(predict_window, "5,4"))
-        self.user_unit_1_5.clicked.connect(lambda: self.unit_clicked(predict_window, "5,5"))
-        self.user_unit_1_6.clicked.connect(lambda: self.unit_clicked(predict_window, "5,6"))
-        self.user_unit_1_7.clicked.connect(lambda: self.unit_clicked(predict_window, "5,7"))
+        self.user_unit_1_1.clicked.connect(lambda: self.unit_clicked(board_window, "5,1"))
+        self.user_unit_1_2.clicked.connect(lambda: self.unit_clicked(board_window, "5,2"))
+        self.user_unit_1_3.clicked.connect(lambda: self.unit_clicked(board_window, "5,3"))
+        self.user_unit_1_4.clicked.connect(lambda: self.unit_clicked(board_window, "5,4"))
+        self.user_unit_1_5.clicked.connect(lambda: self.unit_clicked(board_window, "5,5"))
+        self.user_unit_1_6.clicked.connect(lambda: self.unit_clicked(board_window, "5,6"))
+        self.user_unit_1_7.clicked.connect(lambda: self.unit_clicked(board_window, "5,7"))
 
-        self.user_unit_2_1.clicked.connect(lambda: self.unit_clicked(predict_window, "6,1"))
-        self.user_unit_2_2.clicked.connect(lambda: self.unit_clicked(predict_window, "6,2"))
-        self.user_unit_2_3.clicked.connect(lambda: self.unit_clicked(predict_window, "6,3"))
-        self.user_unit_2_4.clicked.connect(lambda: self.unit_clicked(predict_window, "6,4"))
-        self.user_unit_2_5.clicked.connect(lambda: self.unit_clicked(predict_window, "6,5"))
-        self.user_unit_2_6.clicked.connect(lambda: self.unit_clicked(predict_window, "6,6"))
-        self.user_unit_2_7.clicked.connect(lambda: self.unit_clicked(predict_window, "6,7"))
+        self.user_unit_2_1.clicked.connect(lambda: self.unit_clicked(board_window, "6,1"))
+        self.user_unit_2_2.clicked.connect(lambda: self.unit_clicked(board_window, "6,2"))
+        self.user_unit_2_3.clicked.connect(lambda: self.unit_clicked(board_window, "6,3"))
+        self.user_unit_2_4.clicked.connect(lambda: self.unit_clicked(board_window, "6,4"))
+        self.user_unit_2_5.clicked.connect(lambda: self.unit_clicked(board_window, "6,5"))
+        self.user_unit_2_6.clicked.connect(lambda: self.unit_clicked(board_window, "6,6"))
+        self.user_unit_2_7.clicked.connect(lambda: self.unit_clicked(board_window, "6,7"))
 
-        self.user_unit_3_1.clicked.connect(lambda: self.unit_clicked(predict_window, "7,1"))
-        self.user_unit_3_2.clicked.connect(lambda: self.unit_clicked(predict_window, "7,2"))
-        self.user_unit_3_3.clicked.connect(lambda: self.unit_clicked(predict_window, "7,3"))
-        self.user_unit_3_4.clicked.connect(lambda: self.unit_clicked(predict_window, "7,4"))
-        self.user_unit_3_5.clicked.connect(lambda: self.unit_clicked(predict_window, "7,5"))
-        self.user_unit_3_6.clicked.connect(lambda: self.unit_clicked(predict_window, "7,6"))
-        self.user_unit_3_7.clicked.connect(lambda: self.unit_clicked(predict_window, "7,7"))
+        self.user_unit_3_1.clicked.connect(lambda: self.unit_clicked(board_window, "7,1"))
+        self.user_unit_3_2.clicked.connect(lambda: self.unit_clicked(board_window, "7,2"))
+        self.user_unit_3_3.clicked.connect(lambda: self.unit_clicked(board_window, "7,3"))
+        self.user_unit_3_4.clicked.connect(lambda: self.unit_clicked(board_window, "7,4"))
+        self.user_unit_3_5.clicked.connect(lambda: self.unit_clicked(board_window, "7,5"))
+        self.user_unit_3_6.clicked.connect(lambda: self.unit_clicked(board_window, "7,6"))
+        self.user_unit_3_7.clicked.connect(lambda: self.unit_clicked(board_window, "7,7"))
 
-        self.user_unit_4_1.clicked.connect(lambda: self.unit_clicked(predict_window, "8,1"))
-        self.user_unit_4_2.clicked.connect(lambda: self.unit_clicked(predict_window, "8,2"))
-        self.user_unit_4_3.clicked.connect(lambda: self.unit_clicked(predict_window, "8,3"))
-        self.user_unit_4_4.clicked.connect(lambda: self.unit_clicked(predict_window, "8,4"))
-        self.user_unit_4_5.clicked.connect(lambda: self.unit_clicked(predict_window, "8,5"))
-        self.user_unit_4_6.clicked.connect(lambda: self.unit_clicked(predict_window, "8,6"))
-        self.user_unit_4_7.clicked.connect(lambda: self.unit_clicked(predict_window, "8,7"))
+        self.user_unit_4_1.clicked.connect(lambda: self.unit_clicked(board_window, "8,1"))
+        self.user_unit_4_2.clicked.connect(lambda: self.unit_clicked(board_window, "8,2"))
+        self.user_unit_4_3.clicked.connect(lambda: self.unit_clicked(board_window, "8,3"))
+        self.user_unit_4_4.clicked.connect(lambda: self.unit_clicked(board_window, "8,4"))
+        self.user_unit_4_5.clicked.connect(lambda: self.unit_clicked(board_window, "8,5"))
+        self.user_unit_4_6.clicked.connect(lambda: self.unit_clicked(board_window, "8,6"))
+        self.user_unit_4_7.clicked.connect(lambda: self.unit_clicked(board_window, "8,7"))
 
-        self.actionMain_Menu.triggered.connect(lambda: self.main_menu_clicked(predict_window, main_window))
+        self.actionMain_Menu.triggered.connect(lambda: self.main_menu_clicked(board_window, main_window))
 
-    def retranslate_ui_predict_window(self, predict_window):
+    def retranslate_ui_board_window(self, board_window):
         _translate = QtCore.QCoreApplication.translate
-        predict_window.setWindowTitle(_translate("predict_window", "Board"))
-        self.enemy_winning_percentage.setStatusTip(_translate("predict_window", "Enemy\'s predicted winning chance"))
-        self.enemy_winning_percentage.setText(_translate("predict_window", "0%"))
-        self.user_winning_percentage.setStatusTip(_translate("predict_window", "Your predicted winning chance "))
-        self.user_winning_percentage.setText(_translate("predict_window", "0%"))
-        self.menu_menu.setTitle(_translate("predict_window", "Menu"))
-        self.action_save_board.setText(_translate("predict_window", "Save Board"))
-        self.action_save_board.setStatusTip(_translate("predict_window", "Ctrl+S"))
-        self.action_save_board.setShortcut(_translate("predict_window", "Ctrl+S"))
-        self.action_load_board.setText(_translate("predict_window", "Load Board"))
-        self.action_load_board.setStatusTip(_translate("predict_window", "Ctrl+L"))
-        self.action_load_board.setShortcut(_translate("predict_window", "Ctrl+L"))
-        self.action_clear_board.setText(_translate("predict_window", "Clear Board"))
-        self.action_clear_board.setStatusTip(_translate("predict_window", "Ctrl+C"))
-        self.action_clear_board.setShortcut(_translate("predict_window", "Ctrl+C"))
-        self.actionMain_Menu.setText(_translate("predict_window", "Main Menu"))
-        self.actionMain_Menu.setStatusTip(_translate("predict_window", "Ctrl+M"))
-        self.actionMain_Menu.setText(_translate("predict_window", "Main Menu"))
-        self.actionMain_Menu.setStatusTip(_translate("predict_window", "Ctrl+M"))
-        self.actionMain_Menu.setShortcut(_translate("predict_window", "Ctrl+M"))
+        board_window.setWindowTitle(_translate("board_window", "Board"))
+        self.enemy_winning_percentage.setStatusTip(_translate("board_window", "Enemy\'s predicted winning chance"))
+        self.enemy_winning_percentage.setText(_translate("board_window", "0%"))
+        self.user_winning_percentage.setStatusTip(_translate("board_window", "Your predicted winning chance "))
+        self.user_winning_percentage.setText(_translate("board_window", "0%"))
+        self.menu_menu.setTitle(_translate("board_window", "Menu"))
+        self.action_save_board.setText(_translate("board_window", "Save Board"))
+        self.action_save_board.setStatusTip(_translate("board_window", "Ctrl+S"))
+        self.action_save_board.setShortcut(_translate("board_window", "Ctrl+S"))
+        self.action_load_board.setText(_translate("board_window", "Load Board"))
+        self.action_load_board.setStatusTip(_translate("board_window", "Ctrl+L"))
+        self.action_load_board.setShortcut(_translate("board_window", "Ctrl+L"))
+        self.action_clear_board.setText(_translate("board_window", "Clear Board"))
+        self.action_clear_board.setStatusTip(_translate("board_window", "Ctrl+C"))
+        self.action_clear_board.setShortcut(_translate("board_window", "Ctrl+C"))
+        self.actionMain_Menu.setText(_translate("board_window", "Main Menu"))
+        self.actionMain_Menu.setStatusTip(_translate("board_window", "Ctrl+M"))
+        self.actionMain_Menu.setText(_translate("board_window", "Main Menu"))
+        self.actionMain_Menu.setStatusTip(_translate("board_window", "Ctrl+M"))
+        self.actionMain_Menu.setShortcut(_translate("board_window", "Ctrl+M"))
 
     def main_menu_clicked(self, current_win, main_win):
         main_win.show()

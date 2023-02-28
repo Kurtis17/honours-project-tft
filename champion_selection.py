@@ -1,7 +1,15 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from item_selection import UI_Item_Selector
 
 class UI_Champion_Selector_Window(object):
-    def setup_ui_champion_selector_window(self, champion_level_selector, predict_window, position):
+
+    def test(self, board_window, current_window, selected_champion, selected_level, position):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = UI_Item_Selector()
+        self.ui.setup_ui_item_selector(self.window, board_window, current_window, selected_champion, selected_level, position)
+        self.window.show()
+
+    def setup_ui_champion_selector_window(self, champion_level_selector, board_window, position):
         champion_level_selector.setObjectName("champion_level_selector")
         champion_level_selector.resize(900, 425)
         palette = QtGui.QPalette()
@@ -155,12 +163,12 @@ class UI_Champion_Selector_Window(object):
         self.ashe_button = QtWidgets.QPushButton(self.tier_one)
         self.ashe_button.setGeometry(QtCore.QRect(20, 20, 82, 82))
         self.ashe_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                       "background: #9f9b92;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
         self.ashe_button.setText("")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ashe_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -171,12 +179,12 @@ class UI_Champion_Selector_Window(object):
         self.blitz_button = QtWidgets.QPushButton(self.tier_one)
         self.blitz_button.setGeometry(QtCore.QRect(130, 20, 82, 82))
         self.blitz_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #9f9b92;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.blitz_button.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_blitzcrank_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -187,12 +195,12 @@ class UI_Champion_Selector_Window(object):
         self.galio_button = QtWidgets.QPushButton(self.tier_one)
         self.galio_button.setGeometry(QtCore.QRect(240, 20, 82, 82))
         self.galio_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #9f9b92;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.galio_button.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_galio_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -203,12 +211,12 @@ class UI_Champion_Selector_Window(object):
         self.gangplank_button = QtWidgets.QPushButton(self.tier_one)
         self.gangplank_button.setGeometry(QtCore.QRect(350, 20, 82, 82))
         self.gangplank_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                            "background: #9f9b92;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton:hover {\n"
+                                            "background: white;\n"
+                                            "}")
         self.gangplank_button.setText("")
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_gangplank_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -219,12 +227,12 @@ class UI_Champion_Selector_Window(object):
         self.kayle_button = QtWidgets.QPushButton(self.tier_one)
         self.kayle_button.setGeometry(QtCore.QRect(460, 20, 82, 82))
         self.kayle_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #9f9b92;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.kayle_button.setText("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kayle_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -235,12 +243,12 @@ class UI_Champion_Selector_Window(object):
         self.lulu_button = QtWidgets.QPushButton(self.tier_one)
         self.lulu_button.setGeometry(QtCore.QRect(570, 20, 82, 82))
         self.lulu_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                       "background: #9f9b92;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
         self.lulu_button.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lulu_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -251,12 +259,12 @@ class UI_Champion_Selector_Window(object):
         self.lux_button = QtWidgets.QPushButton(self.tier_one)
         self.lux_button.setGeometry(QtCore.QRect(20, 130, 82, 82))
         self.lux_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                      "background: #9f9b92;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QPushButton:hover {\n"
+                                      "background: white;\n"
+                                      "}")
         self.lux_button.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lux_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -267,12 +275,12 @@ class UI_Champion_Selector_Window(object):
         self.nasus_button = QtWidgets.QPushButton(self.tier_one)
         self.nasus_button.setGeometry(QtCore.QRect(130, 130, 82, 82))
         self.nasus_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #9f9b92;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.nasus_button.setText("")
         icon7 = QtGui.QIcon()
         icon7.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nasus_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -283,12 +291,12 @@ class UI_Champion_Selector_Window(object):
         self.poppy_button = QtWidgets.QPushButton(self.tier_one)
         self.poppy_button.setGeometry(QtCore.QRect(240, 130, 82, 82))
         self.poppy_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #9f9b92;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.poppy_button.setText("")
         icon8 = QtGui.QIcon()
         icon8.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_poppy_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -299,12 +307,12 @@ class UI_Champion_Selector_Window(object):
         self.renekton_button = QtWidgets.QPushButton(self.tier_one)
         self.renekton_button.setGeometry(QtCore.QRect(350, 130, 82, 82))
         self.renekton_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                           "background: #9f9b92;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "background: white;\n"
+                                           "}")
         self.renekton_button.setText("")
         icon9 = QtGui.QIcon()
         icon9.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_renekton_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -315,12 +323,12 @@ class UI_Champion_Selector_Window(object):
         self.sylas_button = QtWidgets.QPushButton(self.tier_one)
         self.sylas_button.setGeometry(QtCore.QRect(460, 130, 82, 82))
         self.sylas_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #9f9b92;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.sylas_button.setText("")
         icon10 = QtGui.QIcon()
         icon10.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sylas_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -331,12 +339,12 @@ class UI_Champion_Selector_Window(object):
         self.talon_button = QtWidgets.QPushButton(self.tier_one)
         self.talon_button.setGeometry(QtCore.QRect(570, 130, 82, 82))
         self.talon_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #9f9b92;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.talon_button.setText("")
         icon11 = QtGui.QIcon()
         icon11.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_talon_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -347,12 +355,12 @@ class UI_Champion_Selector_Window(object):
         self.wukong_button= QtWidgets.QPushButton(self.tier_one)
         self.wukong_button.setGeometry(QtCore.QRect(20, 240, 82, 82))
         self.wukong_button.setStyleSheet("QPushButton {\n"
-        "background: #9f9b92;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #9f9b92;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.wukong_button  .setText("")
         icon12 = QtGui.QIcon()
         icon12.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_wukong_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -366,12 +374,12 @@ class UI_Champion_Selector_Window(object):
         self.annie_button = QtWidgets.QPushButton(self.tier_two)
         self.annie_button.setGeometry(QtCore.QRect(20, 20, 82, 82))
         self.annie_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #25b05c;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.annie_button.setText("")
         icon13 = QtGui.QIcon()
         icon13.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_annie_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -382,12 +390,12 @@ class UI_Champion_Selector_Window(object):
         self.camille_button = QtWidgets.QPushButton(self.tier_two)
         self.camille_button.setGeometry(QtCore.QRect(130, 20, 82, 82))
         self.camille_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                          "background: #25b05c;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "background: white;\n"
+                                          "}")
         self.camille_button.setText("")
         icon14 = QtGui.QIcon()
         icon14.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_camille_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -398,12 +406,12 @@ class UI_Champion_Selector_Window(object):
         self.draven_button = QtWidgets.QPushButton(self.tier_two)
         self.draven_button.setGeometry(QtCore.QRect(240, 20, 82, 82))
         self.draven_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #25b05c;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.draven_button.setText("")
         icon15 = QtGui.QIcon()
         icon15.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_draven_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -414,12 +422,12 @@ class UI_Champion_Selector_Window(object):
         self.ezreal_button = QtWidgets.QPushButton(self.tier_two)
         self.ezreal_button.setGeometry(QtCore.QRect(350, 20, 82, 82))
         self.ezreal_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #25b05c;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.ezreal_button.setText("")
         icon16 = QtGui.QIcon()
         icon16.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ezreal_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -430,12 +438,12 @@ class UI_Champion_Selector_Window(object):
         self.fiora_button = QtWidgets.QPushButton(self.tier_two)
         self.fiora_button.setGeometry(QtCore.QRect(460, 20, 82, 82))
         self.fiora_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #25b05c;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.fiora_button.setText("")
         icon17 = QtGui.QIcon()
         icon17.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_fiora_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -446,12 +454,12 @@ class UI_Champion_Selector_Window(object):
         self.jinx_button = QtWidgets.QPushButton(self.tier_two)
         self.jinx_button.setGeometry(QtCore.QRect(570, 20, 82, 82))
         self.jinx_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                       "background: #25b05c;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
         self.jinx_button.setText("")
         icon18 = QtGui.QIcon()
         icon18.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_jinx_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -462,12 +470,12 @@ class UI_Champion_Selector_Window(object):
         self.leesin_button = QtWidgets.QPushButton(self.tier_two)
         self.leesin_button.setGeometry(QtCore.QRect(20, 130, 82, 82))
         self.leesin_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #25b05c;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.leesin_button.setText("")
         icon19 = QtGui.QIcon()
         icon19.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leesin_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -478,12 +486,12 @@ class UI_Champion_Selector_Window(object):
         self.malphite_button = QtWidgets.QPushButton(self.tier_two)
         self.malphite_button.setGeometry(QtCore.QRect(130, 130, 82, 82))
         self.malphite_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                           "background: #25b05c;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "background: white;\n"
+                                           "}")
         self.malphite_button.setText("")
         icon20 = QtGui.QIcon()
         icon20.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_malphite_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -494,12 +502,12 @@ class UI_Champion_Selector_Window(object):
         self.rell_button = QtWidgets.QPushButton(self.tier_two)
         self.rell_button.setGeometry(QtCore.QRect(240, 130, 82, 82))
         self.rell_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                       "background: #25b05c;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
         self.rell_button.setText("")
         icon21 = QtGui.QIcon()
         icon21.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_rell_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -510,12 +518,12 @@ class UI_Champion_Selector_Window(object):
         self.sivir_button = QtWidgets.QPushButton(self.tier_two)
         self.sivir_button.setGeometry(QtCore.QRect(350, 130, 82, 82))
         self.sivir_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #25b05c;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.sivir_button.setText("")
         icon22 = QtGui.QIcon()
         icon22.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sivir_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -526,12 +534,12 @@ class UI_Champion_Selector_Window(object):
         self.vi_button = QtWidgets.QPushButton(self.tier_two)
         self.vi_button.setGeometry(QtCore.QRect(460, 130, 82, 82))
         self.vi_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                     "background: #25b05c;\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton:hover {\n"
+                                     "background: white;\n"
+                                     "}")
         self.vi_button.setText("")
         icon23 = QtGui.QIcon()
         icon23.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_vi_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -542,12 +550,12 @@ class UI_Champion_Selector_Window(object):
         self.yasuo_button = QtWidgets.QPushButton(self.tier_two)
         self.yasuo_button.setGeometry(QtCore.QRect(570, 130, 82, 82))
         self.yasuo_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #25b05c;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.yasuo_button.setText("")
         icon24 = QtGui.QIcon()
         icon24.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_yasuo_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -558,12 +566,12 @@ class UI_Champion_Selector_Window(object):
         self.yuumi_button = QtWidgets.QPushButton(self.tier_two)
         self.yuumi_button.setGeometry(QtCore.QRect(20, 240, 82, 82))
         self.yuumi_button.setStyleSheet("QPushButton {\n"
-        "background: #25b05c;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #25b05c;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.yuumi_button.setText("")
         icon25 = QtGui.QIcon()
         icon25.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_yuumi_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -577,12 +585,12 @@ class UI_Champion_Selector_Window(object):
         self.alistar_button = QtWidgets.QPushButton(self.tier_three)
         self.alistar_button.setGeometry(QtCore.QRect(20, 20, 82, 82))
         self.alistar_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                          "background: #26a5c9;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "background: white;\n"
+                                          "}")
         self.alistar_button.setText("")
         icon26 = QtGui.QIcon()
         icon26.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_alistar_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -593,12 +601,12 @@ class UI_Champion_Selector_Window(object):
         self.chogath_button = QtWidgets.QPushButton(self.tier_three)
         self.chogath_button.setGeometry(QtCore.QRect(130, 20, 82, 82))
         self.chogath_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                          "background: #26a5c9;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "background: white;\n"
+                                          "}")
         self.chogath_button.setText("")
         icon27 = QtGui.QIcon()
         icon27.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_chogath_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -609,12 +617,12 @@ class UI_Champion_Selector_Window(object):
         self.jax_button = QtWidgets.QPushButton(self.tier_three)
         self.jax_button.setGeometry(QtCore.QRect(240, 20, 82, 82))
         self.jax_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                      "background: #26a5c9;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QPushButton:hover {\n"
+                                      "background: white;\n"
+                                      "}")
         self.jax_button.setText("")
         icon28 = QtGui.QIcon()
         icon28.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_jax_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -625,12 +633,12 @@ class UI_Champion_Selector_Window(object):
         self.kaisa_button = QtWidgets.QPushButton(self.tier_three)
         self.kaisa_button.setGeometry(QtCore.QRect(350, 20, 82, 82))
         self.kaisa_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #26a5c9;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.kaisa_button.setText("")
         icon29 = QtGui.QIcon()
         icon29.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kaisa_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -641,12 +649,12 @@ class UI_Champion_Selector_Window(object):
         self.leblanc_button = QtWidgets.QPushButton(self.tier_three)
         self.leblanc_button.setGeometry(QtCore.QRect(460, 20, 82, 82))
         self.leblanc_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                          "background: #26a5c9;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "background: white;\n"
+                                          "}")
         self.leblanc_button.setText("")
         icon30 = QtGui.QIcon()
         icon30.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leblanc_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -657,12 +665,12 @@ class UI_Champion_Selector_Window(object):
         self.nilah_button = QtWidgets.QPushButton(self.tier_three)
         self.nilah_button.setGeometry(QtCore.QRect(570, 20, 82, 82))
         self.nilah_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #26a5c9;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.nilah_button.setText("")
         icon31 = QtGui.QIcon()
         icon31.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nilah_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -673,12 +681,12 @@ class UI_Champion_Selector_Window(object):
         self.rammus_button = QtWidgets.QPushButton(self.tier_three)
         self.rammus_button.setGeometry(QtCore.QRect(20, 130, 82, 82))
         self.rammus_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #26a5c9;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.rammus_button.setText("")
         icon32 = QtGui.QIcon()
         icon32.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_rammus_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -689,12 +697,12 @@ class UI_Champion_Selector_Window(object):
         self.riven_button = QtWidgets.QPushButton(self.tier_three)
         self.riven_button.setGeometry(QtCore.QRect(130, 130, 82, 82))
         self.riven_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #26a5c9;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.riven_button.setText("")
         icon33 = QtGui.QIcon()
         icon33.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_riven_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -705,12 +713,12 @@ class UI_Champion_Selector_Window(object):
         self.senna_button = QtWidgets.QPushButton(self.tier_three)
         self.senna_button.setGeometry(QtCore.QRect(240, 130, 82, 82))
         self.senna_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #26a5c9;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.senna_button.setText("")
         icon34 = QtGui.QIcon()
         icon34.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_senna_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -721,12 +729,12 @@ class UI_Champion_Selector_Window(object):
         self.sona_button = QtWidgets.QPushButton(self.tier_three)
         self.sona_button.setGeometry(QtCore.QRect(350, 130, 82, 82))
         self.sona_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                       "background: #26a5c9;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
         self.sona_button.setText("")
         icon35 = QtGui.QIcon()
         icon35.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sona_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -737,12 +745,12 @@ class UI_Champion_Selector_Window(object):
         self.vayne_button = QtWidgets.QPushButton(self.tier_three)
         self.vayne_button.setGeometry(QtCore.QRect(460, 130, 82, 82))
         self.vayne_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #26a5c9;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.vayne_button.setText("")
         icon36 = QtGui.QIcon()
         icon36.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_vayne_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -753,12 +761,12 @@ class UI_Champion_Selector_Window(object):
         self.velkoz_button = QtWidgets.QPushButton(self.tier_three)
         self.velkoz_button.setGeometry(QtCore.QRect(570, 130, 82, 82))
         self.velkoz_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #26a5c9;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.velkoz_button.setText("")
         icon37 = QtGui.QIcon()
         icon37.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_velkoz_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -769,12 +777,12 @@ class UI_Champion_Selector_Window(object):
         self.zoe_button = QtWidgets.QPushButton(self.tier_three)
         self.zoe_button.setGeometry(QtCore.QRect(20, 240, 82, 82))
         self.zoe_button.setStyleSheet("QPushButton {\n"
-        "background: #26a5c9;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                      "background: #26a5c9;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QPushButton:hover {\n"
+                                      "background: white;\n"
+                                      "}")
         self.zoe_button.setText("")
         icon38 = QtGui.QIcon()
         icon38.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zoe_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -788,12 +796,12 @@ class UI_Champion_Selector_Window(object):
         self.aurelionsol_button = QtWidgets.QPushButton(self.tier_four)
         self.aurelionsol_button.setGeometry(QtCore.QRect(20, 20, 82, 82))
         self.aurelionsol_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                              "background: #6610f2;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QPushButton:hover {\n"
+                                              "background: white;\n"
+                                              "}")
         self.aurelionsol_button.setText("")
         icon39 = QtGui.QIcon()
         icon39.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aurelionsol_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -804,12 +812,12 @@ class UI_Champion_Selector_Window(object):
         self.belveth_button = QtWidgets.QPushButton(self.tier_four)
         self.belveth_button.setGeometry(QtCore.QRect(130, 20, 82, 82))
         self.belveth_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                          "background: #6610f2;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "background: white;\n"
+                                          "}")
         self.belveth_button.setText("")
         icon40 = QtGui.QIcon()
         icon40.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_belveth_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -820,12 +828,12 @@ class UI_Champion_Selector_Window(object):
         self.ekko_button = QtWidgets.QPushButton(self.tier_four)
         self.ekko_button.setGeometry(QtCore.QRect(240, 20, 82, 82))
         self.ekko_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                       "background: #6610f2;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
         self.ekko_button.setText("")
         icon41 = QtGui.QIcon()
         icon41.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ekko_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -836,12 +844,12 @@ class UI_Champion_Selector_Window(object):
         self.missfortune_button = QtWidgets.QPushButton(self.tier_four)
         self.missfortune_button.setGeometry(QtCore.QRect(350, 20, 82, 82))
         self.missfortune_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                              "background: #6610f2;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QPushButton:hover {\n"
+                                              "background: white;\n"
+                                              "}")
         self.missfortune_button.setText("")
         icon42 = QtGui.QIcon()
         icon42.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_missfortune_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -852,12 +860,12 @@ class UI_Champion_Selector_Window(object):
         self.samira_button = QtWidgets.QPushButton(self.tier_four)
         self.samira_button.setGeometry(QtCore.QRect(460, 20, 82, 82))
         self.samira_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #6610f2;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.samira_button.setText("")
         icon43 = QtGui.QIcon()
         icon43.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_samira_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -868,12 +876,12 @@ class UI_Champion_Selector_Window(object):
         self.sejuani_button = QtWidgets.QPushButton(self.tier_four)
         self.sejuani_button.setGeometry(QtCore.QRect(570, 20, 82, 82))
         self.sejuani_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                          "background: #6610f2;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "background: white;\n"
+                                          "}")
         self.sejuani_button.setText("")
         icon44 = QtGui.QIcon()
         icon44.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sejuani_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -884,12 +892,12 @@ class UI_Champion_Selector_Window(object):
         self.sett_button = QtWidgets.QPushButton(self.tier_four)
         self.sett_button.setGeometry(QtCore.QRect(20, 130, 82, 82))
         self.sett_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                       "background: #6610f2;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
         self.sett_button.setText("")
         icon45 = QtGui.QIcon()
         icon45.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sett_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -900,12 +908,12 @@ class UI_Champion_Selector_Window(object):
         self.soraka_button = QtWidgets.QPushButton(self.tier_four)
         self.soraka_button.setGeometry(QtCore.QRect(130, 130, 82, 82))
         self.soraka_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #6610f2;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.soraka_button.setText("")
         icon46 = QtGui.QIcon()
         icon46.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_soraka_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -916,12 +924,12 @@ class UI_Champion_Selector_Window(object):
         self.taliyah_button = QtWidgets.QPushButton(self.tier_four)
         self.taliyah_button.setGeometry(QtCore.QRect(240, 131, 82, 82))
         self.taliyah_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                          "background: #6610f2;\n"
+                                          "}\n"
+                                          "\n"
+                                          "QPushButton:hover {\n"
+                                          "background: white;\n"
+                                          "}")
         self.taliyah_button.setText("")
         icon47 = QtGui.QIcon()
         icon47.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_taliyah_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -932,12 +940,12 @@ class UI_Champion_Selector_Window(object):
         self.viego_button = QtWidgets.QPushButton(self.tier_four)
         self.viego_button.setGeometry(QtCore.QRect(350, 130, 82, 82))
         self.viego_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #6610f2;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.viego_button.setText("")
         icon48 = QtGui.QIcon()
         icon48.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_viego_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -948,12 +956,12 @@ class UI_Champion_Selector_Window(object):
         self.zac_button = QtWidgets.QPushButton(self.tier_four)
         self.zac_button.setGeometry(QtCore.QRect(460, 130, 82, 82))
         self.zac_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                      "background: #6610f2;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QPushButton:hover {\n"
+                                      "background: white;\n"
+                                      "}")
         self.zac_button.setText("")
         icon49 = QtGui.QIcon()
         icon49.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zac_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -964,12 +972,12 @@ class UI_Champion_Selector_Window(object):
         self.zed_button = QtWidgets.QPushButton(self.tier_four)
         self.zed_button.setGeometry(QtCore.QRect(570, 130, 82, 82))
         self.zed_button.setStyleSheet("QPushButton {\n"
-        "background: #6610f2;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                      "background: #6610f2;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QPushButton:hover {\n"
+                                      "background: white;\n"
+                                      "}")
         self.zed_button.setText("")
         icon50 = QtGui.QIcon()
         icon50.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zed_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -983,12 +991,12 @@ class UI_Champion_Selector_Window(object):
         self.aphelios_button = QtWidgets.QPushButton(self.tier_five)
         self.aphelios_button.setGeometry(QtCore.QRect(20, 20, 82, 82))
         self.aphelios_button.setStyleSheet("QPushButton {\n"
-        "background: #f9b428;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                           "background: #f9b428;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton:hover {\n"
+                                           "background: white;\n"
+                                           "}")
         self.aphelios_button.setText("")
         icon51 = QtGui.QIcon()
         icon51.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aphelios_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -999,12 +1007,12 @@ class UI_Champion_Selector_Window(object):
         self.fiddlesticks_button = QtWidgets.QPushButton(self.tier_five)
         self.fiddlesticks_button.setGeometry(QtCore.QRect(130, 20, 82, 82))
         self.fiddlesticks_button.setStyleSheet("QPushButton {\n"
-        "background: #f9b428;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                               "background: #f9b428;\n"
+                                               "}\n"
+                                               "\n"
+                                               "QPushButton:hover {\n"
+                                               "background: white;\n"
+                                               "}")
         self.fiddlesticks_button.setText("")
         icon52 = QtGui.QIcon()
         icon52.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_fiddlesticks_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1015,12 +1023,12 @@ class UI_Champion_Selector_Window(object):
         self.janna_button = QtWidgets.QPushButton(self.tier_five)
         self.janna_button.setGeometry(QtCore.QRect(240, 20, 82, 82))
         self.janna_button.setStyleSheet("QPushButton {\n"
-        "background: #f9b428;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #f9b428;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.janna_button.setText("")
         icon53 = QtGui.QIcon()
         icon53.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_janna_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1031,12 +1039,12 @@ class UI_Champion_Selector_Window(object):
         self.syndra_button = QtWidgets.QPushButton(self.tier_five)
         self.syndra_button.setGeometry(QtCore.QRect(20, 130, 82, 82))
         self.syndra_button.setStyleSheet("QPushButton {\n"
-        "background: #f9b428;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                         "background: #f9b428;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton:hover {\n"
+                                         "background: white;\n"
+                                         "}")
         self.syndra_button.setText("")
         icon54 = QtGui.QIcon()
         icon54.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_syndra_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1047,12 +1055,12 @@ class UI_Champion_Selector_Window(object):
         self.leona_button = QtWidgets.QPushButton(self.tier_five)
         self.leona_button.setGeometry(QtCore.QRect(350, 20, 82, 82))
         self.leona_button.setStyleSheet("QPushButton {\n"
-        "background: #f9b428;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #f9b428;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.leona_button.setText("")
         icon55 = QtGui.QIcon()
         icon55.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leona_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1063,12 +1071,12 @@ class UI_Champion_Selector_Window(object):
         self.mordekaiser_button = QtWidgets.QPushButton(self.tier_five)
         self.mordekaiser_button.setGeometry(QtCore.QRect(460, 20, 82, 82))
         self.mordekaiser_button.setStyleSheet("QPushButton {\n"
-        "background: #f9b428;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                              "background: #f9b428;\n"
+                                              "}\n"
+                                              "\n"
+                                              "QPushButton:hover {\n"
+                                              "background: white;\n"
+                                              "}")
         self.mordekaiser_button.setText("")
         icon56 = QtGui.QIcon()
         icon56.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_mordekaiser_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1079,12 +1087,12 @@ class UI_Champion_Selector_Window(object):
         self.nunu_button = QtWidgets.QPushButton(self.tier_five)
         self.nunu_button.setGeometry(QtCore.QRect(570, 20, 82, 82))
         self.nunu_button.setStyleSheet("QPushButton {\n"
-        "background: #f9b428;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                       "background: #f9b428;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
         self.nunu_button.setText("")
         icon57 = QtGui.QIcon()
         icon57.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nunu_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1095,12 +1103,12 @@ class UI_Champion_Selector_Window(object):
         self.urgot_button = QtWidgets.QPushButton(self.tier_five)
         self.urgot_button.setGeometry(QtCore.QRect(130, 130, 82, 82))
         self.urgot_button.setStyleSheet("QPushButton {\n"
-        "background: #f9b428;\n"
-        "}\n"
-        "\n"
-        "QPushButton:hover {\n"
-        "background: white;\n"
-        "}")
+                                        "background: #f9b428;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        "background: white;\n"
+                                        "}")
         self.urgot_button.setText("")
         icon58 = QtGui.QIcon()
         icon58.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_urgot_square.tft_set8.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -1116,17 +1124,17 @@ class UI_Champion_Selector_Window(object):
         self.next_button = QtWidgets.QPushButton(champion_level_selector)
         self.next_button.setGeometry(QtCore.QRect(750, 280, 101, 41))
         self.next_button.setStyleSheet("QPushButton {\n"
-        "color: white;\n"
-        "border-radius: 20px;\n"
-        "background: qradialgradient(\n"
-        "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-        "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: qradialgradient(\n"
-        "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-        "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
-        "}")
+                                       "color: white;\n"
+                                       "border-radius: 20px;\n"
+                                       "background: qradialgradient(\n"
+                                       "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                       "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
+                                       "}\n"
+                                       "QPushButton:hover {\n"
+                                       "background: qradialgradient(\n"
+                                       "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                       "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
+                                       "}")
         self.next_button.setObjectName("next_button")
         self.selected_champion = QtWidgets.QLabel(champion_level_selector)
         self.selected_champion.setGeometry(QtCore.QRect(750, 100, 101, 101))
@@ -1147,69 +1155,71 @@ class UI_Champion_Selector_Window(object):
         self.champion_tab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(champion_level_selector)
 
-        self.ashe_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ashe_square.tft_set8.png", "Ashe"))
-        self.blitz_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_blitzcrank_square.tft_set8.png", "Blitzcrank"))
-        self.galio_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_galio_square.tft_set8.png", "Galio"))
-        self.gangplank_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_gangplank_square.tft_set8.png", "Gangplank"))
-        self.kayle_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kayle_square.tft_set8.png", "Kayle"))
-        self.lulu_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lulu_square.tft_set8.png", "Lulu"))
-        self.lux_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lux_square.tft_set8.png", "Lux"))
-        self.nasus_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nasus_square.tft_set8.png", "Nasus"))
-        self.poppy_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_poppy_square.tft_set8.png", "Poppy"))
-        self.renekton_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_renekton_square.tft_set8.png", "Renekton"))
-        self.sylas_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sylas_square.tft_set8.png", "Sylas"))
-        self.talon_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_talon_square.tft_set8.png", "Talon"))
-        self.wukong_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_wukong_square.tft_set8.png", "Wukong"))
+        self.ashe_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ashe_square.tft_set8.png", "Ashe"))
+        self.blitz_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_blitzcrank_square.tft_set8.png", "Blitzcrank"))
+        self.galio_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_galio_square.tft_set8.png", "Galio"))
+        self.gangplank_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_gangplank_square.tft_set8.png", "Gangplank"))
+        self.kayle_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kayle_square.tft_set8.png", "Kayle"))
+        self.lulu_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lulu_square.tft_set8.png", "Lulu"))
+        self.lux_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_lux_square.tft_set8.png", "Lux"))
+        self.nasus_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nasus_square.tft_set8.png", "Nasus"))
+        self.poppy_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_poppy_square.tft_set8.png", "Poppy"))
+        self.renekton_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_renekton_square.tft_set8.png", "Renekton"))
+        self.sylas_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sylas_square.tft_set8.png", "Sylas"))
+        self.talon_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_talon_square.tft_set8.png", "Talon"))
+        self.wukong_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_wukong_square.tft_set8.png", "Wukong"))
 
-        self.annie_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_annie_square.tft_set8.png", "Annie"))
-        self.camille_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_camille_square.tft_set8.png", "Camille"))
-        self.draven_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_draven_square.tft_set8.png", "Draven"))
-        self.ezreal_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ezreal_square.tft_set8.png", "Ezreal"))
-        self.fiora_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_fiora_square.tft_set8.png", "Fiora"))
-        self.jinx_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_jinx_square.tft_set8.png", "Jinx"))
-        self.leesin_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leesin_square.tft_set8.png", "Lee Sin"))
-        self.malphite_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_malphite_square.tft_set8.png", "Malphite"))
-        self.rell_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_rell_square.tft_set8.png", "Rell"))
-        self.sivir_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sivir_square.tft_set8.png", "Sivir"))
-        self.vi_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_vi_square.tft_set8.png", "Vi"))
-        self.yasuo_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_yasuo_square.tft_set8.png", "Yasuo"))
-        self.yuumi_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_yuumi_square.tft_set8.png", "Yuumi"))
+        self.annie_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_annie_square.tft_set8.png", "Annie"))
+        self.camille_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_camille_square.tft_set8.png", "Camille"))
+        self.draven_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_draven_square.tft_set8.png", "Draven"))
+        self.ezreal_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ezreal_square.tft_set8.png", "Ezreal"))
+        self.fiora_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_fiora_square.tft_set8.png", "Fiora"))
+        self.jinx_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_jinx_square.tft_set8.png", "Jinx"))
+        self.leesin_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leesin_square.tft_set8.png", "Lee Sin"))
+        self.malphite_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_malphite_square.tft_set8.png", "Malphite"))
+        self.rell_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_rell_square.tft_set8.png", "Rell"))
+        self.sivir_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sivir_square.tft_set8.png", "Sivir"))
+        self.vi_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_vi_square.tft_set8.png", "Vi"))
+        self.yasuo_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_yasuo_square.tft_set8.png", "Yasuo"))
+        self.yuumi_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_yuumi_square.tft_set8.png", "Yuumi"))
 
-        self.alistar_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_alistar_square.tft_set8.png", "Alistar"))
-        self.chogath_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_chogath_square.tft_set8.png", "Cho'gath"))
-        self.jax_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_jax_square.tft_set8.png", "Jax"))
-        self.kaisa_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kaisa_square.tft_set8.png", "Kaisa"))
-        self.leblanc_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leblanc_square.tft_set8.png", "Leblanc"))
-        self.nilah_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nilah_square.tft_set8.png", "Nilah"))
-        self.rammus_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_rammus_square.tft_set8.png", "Rammus"))
-        self.riven_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_riven_square.tft_set8.png", "Riven"))
-        self.senna_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_senna_square.tft_set8.png", "Senna"))
-        self.sona_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sona_square.tft_set8.png", "Sona"))
-        self.vayne_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_vayne_square.tft_set8.png", "Vayne"))
-        self.velkoz_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_velkoz_square.tft_set8.png", "Velkoz"))
-        self.zoe_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zoe_square.tft_set8.png", "Zoe"))
+        self.alistar_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_alistar_square.tft_set8.png", "Alistar"))
+        self.chogath_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_chogath_square.tft_set8.png", "Cho'gath"))
+        self.jax_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_jax_square.tft_set8.png", "Jax"))
+        self.kaisa_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_kaisa_square.tft_set8.png", "Kaisa"))
+        self.leblanc_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leblanc_square.tft_set8.png", "Leblanc"))
+        self.nilah_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nilah_square.tft_set8.png", "Nilah"))
+        self.rammus_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_rammus_square.tft_set8.png", "Rammus"))
+        self.riven_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_riven_square.tft_set8.png", "Riven"))
+        self.senna_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_senna_square.tft_set8.png", "Senna"))
+        self.sona_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sona_square.tft_set8.png", "Sona"))
+        self.vayne_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_vayne_square.tft_set8.png", "Vayne"))
+        self.velkoz_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_velkoz_square.tft_set8.png", "Velkoz"))
+        self.zoe_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zoe_square.tft_set8.png", "Zoe"))
 
-        self.aurelionsol_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aurelionsol_square.tft_set8.png", "Aurelion Sol"))
-        self.belveth_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_belveth_square.tft_set8.png", "Bel'Veth"))
-        self.ekko_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ekko_square.tft_set8.png", "Ekko"))
-        self.missfortune_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_missfortune_square.tft_set8.png", "Miss Fortune"))
-        self.samira_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_samira_square.tft_set8.png", "Samira"))
-        self.sejuani_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sejuani_square.tft_set8.png", "Sejuani"))
-        self.sett_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sett_square.tft_set8.png", "Sett"))
-        self.leblanc_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leblanc_square.tft_set8.png", "Leblanc"))
-        self.taliyah_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_taliyah_square.tft_set8.png", "Taliyah"))
-        self.viego_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_viego_square.tft_set8.png", "Viego"))
-        self.zac_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zac_square.tft_set8.png", "Zac"))
-        self.zed_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zed_square.tft_set8.png", "Zed"))
+        self.aurelionsol_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aurelionsol_square.tft_set8.png", "Aurelion Sol"))
+        self.belveth_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_belveth_square.tft_set8.png", "Bel'Veth"))
+        self.ekko_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_ekko_square.tft_set8.png", "Ekko"))
+        self.missfortune_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_missfortune_square.tft_set8.png", "Miss Fortune"))
+        self.samira_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_samira_square.tft_set8.png", "Samira"))
+        self.sejuani_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sejuani_square.tft_set8.png", "Sejuani"))
+        self.sett_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_sett_square.tft_set8.png", "Sett"))
+        self.leblanc_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leblanc_square.tft_set8.png", "Leblanc"))
+        self.taliyah_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_taliyah_square.tft_set8.png", "Taliyah"))
+        self.viego_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_viego_square.tft_set8.png", "Viego"))
+        self.zac_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zac_square.tft_set8.png", "Zac"))
+        self.zed_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_zed_square.tft_set8.png", "Zed"))
 
-        self.aphelios_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aphelios_square.tft_set8.png", "Aphelios"))
-        self.fiddlesticks_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_fiddlesticks_square.tft_set8.png", "Fiddlesticks"))
-        self.janna_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_janna_square.tft_set8.png", "Janna"))
-        self.leona_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leona_square.tft_set8.png", "Leona"))
-        self.mordekaiser_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_mordekaiser_square.tft_set8.png", "Mordekaiser"))
-        self.nunu_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nunu_square.tft_set8.png", "Nunu & Willump"))
-        self.syndra_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_syndra_square.tft_set8.png", "Syndra"))
-        self.urgot_button.clicked.connect(lambda: self.test("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_urgot_square.tft_set8.png", "Urgot"))
+        self.aphelios_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_aphelios_square.tft_set8.png", "Aphelios"))
+        self.fiddlesticks_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_fiddlesticks_square.tft_set8.png", "Fiddlesticks"))
+        self.janna_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_janna_square.tft_set8.png", "Janna"))
+        self.leona_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_leona_square.tft_set8.png", "Leona"))
+        self.mordekaiser_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_mordekaiser_square.tft_set8.png", "Mordekaiser"))
+        self.nunu_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_nunu_square.tft_set8.png", "Nunu & Willump"))
+        self.syndra_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_syndra_square.tft_set8.png", "Syndra"))
+        self.urgot_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_urgot_square.tft_set8.png", "Urgot"))
+
+        self.next_button.clicked.connect(lambda: self.next_clicked(board_window, champion_level_selector, position))
 
     def retranslate_ui_champion_selector_window(self, champion_level_selector):
         _translate = QtCore.QCoreApplication.translate
@@ -1224,7 +1234,7 @@ class UI_Champion_Selector_Window(object):
         self.selected_champion.setText(_translate("champion_level_selector", "selected champion"))
         self.selected_level.setText(_translate("champion_level_selector", "Lvl"))
 
-    def test(self, image_path, champion_name):
+    def unit_clicked(self, image_path, champion_name):
         if self.champion_name.text() == champion_name:
             if self.selected_level.text() == "Lvl":
                 self.selected_level.setText("Lvl 1")
@@ -1238,3 +1248,10 @@ class UI_Champion_Selector_Window(object):
             self.selected_level.setText("Lvl 1")
             self.champion_name.setText(champion_name)
             self.selected_champion.setPixmap(QtGui.QPixmap(image_path))
+
+    def next_clicked(self, board_window, champion_window, position):
+        if self.champion_name.text() == "Name":
+            print("test - worked no champion selected")
+        else:
+            ##self.open_item_window(board_window, champion_window, position, self.champion_name.text())
+            self.test(board_window, champion_window, self.champion_name.text(), self.selected_level.text(), position)

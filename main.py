@@ -1,12 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from board import UI_Predict_Window
+from board import UI_Board_Window
 import sys
 
 class UI_Main_Window(object):
     def open_predictor_window(self):
         self.window = QtWidgets.QMainWindow()
-        self.ui = UI_Predict_Window()
-        self.ui.setup_ui_predict_window(self.window, main_window)
+        self.ui = UI_Board_Window()
+        self.ui.setup_ui_board_window(self.window, main_window)
         self.window.show()
         main_window.hide()
 
@@ -163,17 +163,17 @@ class UI_Main_Window(object):
         font.setWeight(50)
         self.predict_button.setFont(font)
         self.predict_button.setStyleSheet("QPushButton {\n"
-        "color: white;\n"
-        "border-radius: 20px;\n"
-        "background: qradialgradient(\n"
-        "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-        "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: qradialgradient(\n"
-        "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-        "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
-        "}")
+                                          "color: white;\n"
+                                          "border-radius: 20px;\n"
+                                          "background: qradialgradient(\n"
+                                          "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                          "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
+                                          "}\n"
+                                          "QPushButton:hover {\n"
+                                          "background: qradialgradient(\n"
+                                          "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                          "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
+                                          "}")
         self.predict_button.setObjectName("predict_button")
         self.analysis_button = QtWidgets.QPushButton(self.centralwidget)
         self.analysis_button.setGeometry(QtCore.QRect(230, 310, 140, 40))
@@ -182,17 +182,17 @@ class UI_Main_Window(object):
         font.setPointSize(10)
         self.analysis_button.setFont(font)
         self.analysis_button.setStyleSheet("QPushButton {\n"
-        "color: white;\n"
-        "border-radius: 20px;\n"
-        "background: qradialgradient(\n"
-        "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-        "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: qradialgradient(\n"
-        "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-        "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
-        "}")
+                                           "color: white;\n"
+                                           "border-radius: 20px;\n"
+                                           "background: qradialgradient(\n"
+                                           "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                           "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
+                                           "}\n"
+                                           "QPushButton:hover {\n"
+                                           "background: qradialgradient(\n"
+                                           "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                           "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
+                                           "}")
         self.analysis_button.setObjectName("analysis_button")
         self.quit_button = QtWidgets.QPushButton(self.centralwidget)
         self.quit_button.setGeometry(QtCore.QRect(230, 370, 140, 40))
@@ -201,17 +201,17 @@ class UI_Main_Window(object):
         font.setPointSize(10)
         self.quit_button.setFont(font)
         self.quit_button.setStyleSheet("QPushButton {\n"
-        "color: white;\n"
-        "border-radius: 20px;\n"
-        "background: qradialgradient(\n"
-        "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-        "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
-        "}\n"
-        "QPushButton:hover {\n"
-        "background: qradialgradient(\n"
-        "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-        "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
-        "}")
+                                       "color: white;\n"
+                                       "border-radius: 20px;\n"
+                                       "background: qradialgradient(\n"
+                                       "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                       "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
+                                       "}\n"
+                                       "QPushButton:hover {\n"
+                                       "background: qradialgradient(\n"
+                                       "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                       "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
+                                       "}")
         self.quit_button.setObjectName("quit_button")
         main_window.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(main_window)
