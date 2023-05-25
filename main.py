@@ -1,12 +1,12 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from board import UI_Board_Window
+from board import UI_Board_Widget
 import sys
 
 class UI_Main_Window(object):
     def open_predictor_window(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = UI_Board_Window()
-        self.ui.setup_ui_board_window(self.window, main_window)
+        self.window = UI_Board_Widget()
+        self.ui = UI_Board_Widget()
+        self.ui.setup_ui_board_widget(self.window, main_window)
         self.window.show()
         main_window.hide()
 

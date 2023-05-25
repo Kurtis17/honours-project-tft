@@ -1,7 +1,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class UI_Item_Selector(object):
+
+    def update_board(self, board_window):
+        self.board_window.enemy_unit_1_1.setText("test")
+
     def setup_ui_item_selector(self, item_selector, board_window, champion_window, selected_champion, selected_level, position):
         item_selector.setObjectName("item_selector")
         item_selector.resize(1100, 431)
@@ -158,18 +161,18 @@ class UI_Item_Selector(object):
                                        "}")
         self.next_button.setIconSize(QtCore.QSize(75, 75))
         self.next_button.setObjectName("next_button")
-        self.selected_champion_1 = QtWidgets.QLabel(item_selector)
-        self.selected_champion_1.setGeometry(QtCore.QRect(760, 160, 82, 82))
-        self.selected_champion_1.setAutoFillBackground(False)
-        self.selected_champion_1.setStyleSheet("QLabel {\n"
+        self.selected_item_1 = QtWidgets.QLabel(item_selector)
+        self.selected_item_1.setGeometry(QtCore.QRect(760, 160, 82, 82))
+        self.selected_item_1.setAutoFillBackground(False)
+        self.selected_item_1.setStyleSheet("QLabel {\n"
                                                "background: rgb(18, 48, 64);\n"
                                                "border: 2px solid white;\n"
                                                "}\n"
                                                "")
-        self.selected_champion_1.setText("")
-        self.selected_champion_1.setScaledContents(True)
-        self.selected_champion_1.setAlignment(QtCore.Qt.AlignCenter)
-        self.selected_champion_1.setObjectName("selected_champion_1")
+        self.selected_item_1.setText("")
+        self.selected_item_1.setScaledContents(True)
+        self.selected_item_1.setAlignment(QtCore.Qt.AlignCenter)
+        self.selected_item_1.setObjectName("selected_item_1")
         self.item_tab = QtWidgets.QTabWidget(item_selector)
         self.item_tab.setGeometry(QtCore.QRect(20, 20, 700, 380))
         self.item_tab.setStyleSheet("background-color: rgb(18, 48, 64);")
@@ -2260,30 +2263,30 @@ class UI_Item_Selector(object):
         self.gridLayout_9.addWidget(self.ornn_burron_10, 1, 4, 1, 1)
         self.gadget_scroll_area_3.setWidget(self.scrollAreaWidgetContents_9)
         self.item_tab.addTab(self.Ornn, "")
-        self.selected_champion_2 = QtWidgets.QLabel(item_selector)
-        self.selected_champion_2.setGeometry(QtCore.QRect(870, 160, 82, 82))
-        self.selected_champion_2.setAutoFillBackground(False)
-        self.selected_champion_2.setStyleSheet("QLabel {\n"
+        self.selected_item_2 = QtWidgets.QLabel(item_selector)
+        self.selected_item_2.setGeometry(QtCore.QRect(870, 160, 82, 82))
+        self.selected_item_2.setAutoFillBackground(False)
+        self.selected_item_2.setStyleSheet("QLabel {\n"
                                                "background: rgb(18, 48, 64);\n"
                                                "border: 2px solid #195778;\n"
                                                "}\n"
                                                "")
-        self.selected_champion_2.setText("")
-        self.selected_champion_2.setScaledContents(True)
-        self.selected_champion_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.selected_champion_2.setObjectName("selected_champion_2")
-        self.selected_champion_3 = QtWidgets.QLabel(item_selector)
-        self.selected_champion_3.setGeometry(QtCore.QRect(980, 160, 82, 82))
-        self.selected_champion_3.setAutoFillBackground(False)
-        self.selected_champion_3.setStyleSheet("QLabel {\n"
+        self.selected_item_2.setText("")
+        self.selected_item_2.setScaledContents(True)
+        self.selected_item_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.selected_item_2.setObjectName("selected_item_2")
+        self.selected_item_3 = QtWidgets.QLabel(item_selector)
+        self.selected_item_3.setGeometry(QtCore.QRect(980, 160, 82, 82))
+        self.selected_item_3.setAutoFillBackground(False)
+        self.selected_item_3.setStyleSheet("QLabel {\n"
                                                "background: rgb(18, 48, 64);\n"
                                                "border: 2px solid #195778;\n"
                                                "}\n"
                                                "")
-        self.selected_champion_3.setText("")
-        self.selected_champion_3.setScaledContents(True)
-        self.selected_champion_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.selected_champion_3.setObjectName("selected_champion_3")
+        self.selected_item_3.setText("")
+        self.selected_item_3.setScaledContents(True)
+        self.selected_item_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.selected_item_3.setObjectName("selected_item_3")
         self.change_button = QtWidgets.QPushButton(item_selector)
         self.change_button.setGeometry(QtCore.QRect(860, 280, 100, 40))
         self.change_button.setStyleSheet("QPushButton {\n"
@@ -2325,11 +2328,11 @@ class UI_Item_Selector(object):
         self.item_name_label_3.setText("")
         self.item_name_label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.item_name_label_3.setObjectName("item_name_label_3")
-        self.selected_champion_1.raise_()
+        self.selected_item_1.raise_()
         self.next_button.raise_()
         self.item_tab.raise_()
-        self.selected_champion_2.raise_()
-        self.selected_champion_3.raise_()
+        self.selected_item_2.raise_()
+        self.selected_item_3.raise_()
         self.change_button.raise_()
         self.current_select_label.raise_()
         self.item_name_label_1.raise_()
@@ -2339,6 +2342,10 @@ class UI_Item_Selector(object):
         self.retranslate_ui_item_selector(item_selector)
         self.item_tab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(item_selector)
+
+        self.standard_button_1.clicked.connect(lambda : self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/tft8_urgot_square.tft_set8.png", "Urgot"))
+
+        self.change_button.clicked.connect(lambda: self.change_clicked())
 
     def retranslate_ui_item_selector(self, item_selector):
         _translate = QtCore.QCoreApplication.translate
@@ -2351,4 +2358,53 @@ class UI_Item_Selector(object):
         self.item_tab.setTabText(self.item_tab.indexOf(self.Ornn), _translate("item_selector", "Ornn"))
         self.change_button.setText(_translate("item_selector", "Change Select"))
         self.current_select_label.setText(_translate("item_selector", "Currently selecting item slot 1"))
+
+    def item_clicked(self, image_path, item_name):
+        if self.current_select_label.text() == "Currently selecting item slot 1":
+            self.selected_item_1.setPixmap(QtGui.QPixmap(image_path))
+        elif self.current_select_label.text() == "Currently selecting item slot 2":
+            self.selected_item_2.setPixmap(QtGui.QPixmap(image_path))
+        elif self.current_select_label.text() == "Currently selecting item slot 3":
+            self.selected_item_3.setPixmap(QtGui.QPixmap(image_path))
+
+    def change_clicked(self):
+        if self.current_select_label.text() == "Currently selecting item slot 1":
+            self.current_select_label.setText("Currently selecting item slot 2")
+            self.selected_item_1.setStyleSheet("QLabel {\n"
+                                               "background: rgb(18, 48, 64);\n"
+                                               "border: 2px solid #195778;\n"
+                                               "}\n"
+                                               "")
+            self.selected_item_2.setStyleSheet("QLabel {\n"
+                                               "background: rgb(18, 48, 64);\n"
+                                               "border: 2px solid white;\n"
+                                               "}\n"
+                                               "")
+        elif self.current_select_label.text() == "Currently selecting item slot 2":
+            self.current_select_label.setText("Currently selecting item slot 3")
+            self.selected_item_2.setStyleSheet("QLabel {\n"
+                                               "background: rgb(18, 48, 64);\n"
+                                               "border: 2px solid #195778;\n"
+                                               "}\n"
+                                               "")
+            self.selected_item_3.setStyleSheet("QLabel {\n"
+                                               "background: rgb(18, 48, 64);\n"
+                                               "border: 2px solid white;\n"
+                                               "}\n"
+                                               "")
+        elif self.current_select_label.text() == "Currently selecting item slot 3":
+            self.current_select_label.setText("Currently selecting item slot 1")
+            self.selected_item_3.setStyleSheet("QLabel {\n"
+                                               "background: rgb(18, 48, 64);\n"
+                                               "border: 2px solid #195778;\n"
+                                               "}\n"
+                                               "")
+            self.selected_item_1.setStyleSheet("QLabel {\n"
+                                               "background: rgb(18, 48, 64);\n"
+                                               "border: 2px solid white;\n"
+                                               "}\n"
+                                               "")
+
+
+
 
