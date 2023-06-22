@@ -2129,7 +2129,6 @@ class UI_Board_Widget(QWidget):
         self.item_one_6.setScaledContents(True)
         self.item_one_6.setObjectName("item_one_6")
 
-
         if state == "new":
             print("newboard")
         else:
@@ -2138,43 +2137,60 @@ class UI_Board_Widget(QWidget):
             for position in current_board_state:
                 if position[0] == "e":
                     position_information = position.split("|")
-
                     button = getattr(self, f"enemy_unit_{position[1]}_{position[3]}")
-
-                    image_path = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_{position_information[1]}_mobile.tft_set9.png"
-
-                    icon = QtGui.QIcon()
-                    icon.addPixmap(QtGui.QPixmap(image_path), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-                    button.setIcon(icon)
-
-                    if position_information[0] == "e1_1":
-                        self.level.setText("    ***")
-                    else:
-                        level_position = int(position[1]) * int(position[3])
-                        level_label = getattr(self, f"level_{level_position}")
-                        level_label.setText("Level: " + position_information[2])
-
-
-
-                    """ #I can use the getattr to do the whole thing instead of millions of if statements
                     if position[1] == "1":
-                        if position[3] == "1":
-                            position_information = position.split("|")
-                            print(position_information)
-                            icon55 = QtGui.QIcon()
-                            icon55.addPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/5 STAR/tft9_heimerdinger_mobile.tft_set9.png"),QtGui.QIcon.Normal, QtGui.QIcon.Off)
-                            self.enemy_unit_1_1.setIcon(icon55)
-                            self.enemy_unit_1_1.setIconSize(QtCore.QSize(75, 75))
-                            self.level.setText("lvl 1")
-                            self.item_one.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/5 STAR/tft9_heimerdinger_mobile.tft_set9.png"))
-                        """
+                        if not position[3] == "1":
+                            level_position = int(position[3])
+                    elif position[1] == "2":
+                        level_position = int(position[3]) + 7
+                    elif position[1] == "3":
+                        level_position = int(position[3]) + 14
+                    elif position[1] == "4":
+                        level_position = int(position[3]) + 21
+                    level_label = getattr(self, f"level_{level_position}")
                 elif position[0] == "u":
-                    print("")
+                    position_information = position.split("|")
+                    button = getattr(self, f"user_unit_{position[1]}_{position[3]}")
+                    if position[1] == "1":
+                        level_position = int(position[3]) + 28
+                    elif position[1] == "2":
+                        level_position = int(position[3]) + 35
+                    elif position[1] == "3":
+                        level_position = int(position[3]) + 42
+                    elif position[1] == "4":
+                        level_position = int(position[3]) + 49
+                    level_label = getattr(self, f"level_{level_position}")
+
+                image_path = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_{position_information[1]}_mobile.tft_set9.png"
+
+                icon = QtGui.QIcon()
+                icon.addPixmap(QtGui.QPixmap(image_path), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                button.setIcon(icon)
+
+                if position_information[0] == "e1_1":
+                    if position_information[2] == "1":
+                        self.level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/One.png"))
+                    elif position_information[2] == "2":
+                            self.level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Two.png"))
+                    elif position_information[2] == "3":
+                        self.level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Three.png"))
+                else:
+                    if position_information[2] == "1":
+                        level_label.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/One.png"))
+                    elif position_information[2] == "2":
+                        level_label.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Two.png"))
+                    elif position_information[2] == "3":
+                        level_label.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Three.png"))
 
 
+        self.level.raise_()
         self.item_one.raise_()
         self.item_two.raise_()
         self.item_three.raise_()
+
+        for i in range(2,56):
+            label_level = getattr(self, f"level_{i}")
+            label_level.raise_()
 
         for i in range(2,56):
             label_one = getattr(self, f"item_one_{i}")
