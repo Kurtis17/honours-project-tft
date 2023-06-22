@@ -5,7 +5,7 @@ class UI_Item_Selector(object):
     def update_board(self, board_window):
         self.board_window.enemy_unit_1_1.setText("test")
 
-    def setup_ui_item_selector(self, item_selector, board_window, champion_window, selected_champion, selected_level, position):
+    def setup_ui_item_selector(self, item_selector, board_window, champion_window, selected_champion, selected_level, state):
         item_selector.setObjectName("item_selector")
         item_selector.resize(1100, 431)
         palette = QtGui.QPalette()

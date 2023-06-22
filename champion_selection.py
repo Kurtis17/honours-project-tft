@@ -3,13 +3,13 @@ from item_selection import UI_Item_Selector
 
 class UI_Champion_Selector_Window(object):
 
-    def test(self, board_window, current_window, selected_champion, selected_level, position):
+    def test(self, board_window, current_window, selected_champion, selected_level, state):
         self.window = QtWidgets.QMainWindow()
         self.ui = UI_Item_Selector()
-        self.ui.setup_ui_item_selector(self.window, board_window, current_window, selected_champion, selected_level, position)
+        self.ui.setup_ui_item_selector(self.window, board_window, current_window, selected_champion, selected_level, state)
         self.window.show()
 
-    def setup_ui_champion_selector_window(self, champion_level_selector, board_window, position):
+    def setup_ui_champion_selector_window(self, champion_level_selector, board_window, state):
         champion_level_selector.setObjectName("champion_level_selector")
         champion_level_selector.resize(900, 425)
         palette = QtGui.QPalette()
@@ -1219,7 +1219,7 @@ class UI_Champion_Selector_Window(object):
         self.sion_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_sion_mobile.tft_set9.png", "Sion"))
         self.ryze_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_ryze_mobile.tft_set9.png", "Ryze"))
 
-        self.next_button.clicked.connect(lambda: self.next_clicked(board_window, champion_level_selector, position))
+        self.next_button.clicked.connect(lambda: self.next_clicked(board_window, champion_level_selector, state))
 
     def retranslate_ui_champion_selector_window(self, champion_level_selector):
         _translate = QtCore.QCoreApplication.translate
@@ -1249,9 +1249,9 @@ class UI_Champion_Selector_Window(object):
             self.champion_name.setText(champion_name)
             self.selected_champion.setPixmap(QtGui.QPixmap(image_path))
 
-    def next_clicked(self, board_window, champion_window, position):
+    def next_clicked(self, board_window, champion_window, state):
         if self.champion_name.text() == "Name":
             print("test - worked no champion selected")
         else:
-            ##self.open_item_window(board_window, champion_window, position, self.champion_name.text())
-            self.test(board_window, champion_window, self.champion_name.text(), self.selected_level.text(), position)
+            ##self.open_item_window(board_window, champion_window, state, self.champion_name.text())
+            self.test(board_window, champion_window, self.champion_name.text(), self.selected_level.text(), state)
