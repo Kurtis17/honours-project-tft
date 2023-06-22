@@ -3,14 +3,19 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QMessageBox)
 from champion_selection import UI_Champion_Selector_Window
 
 class UI_Board_Widget(QWidget):
-    def open_champion_window(self, current_window, position):
+    tracker = 0
+
+    def open_champion_window(self, current_window, state):
+        if self.tracker == 1:
+            self.window.close()
+
         self.window = QtWidgets.QMainWindow()
         self.ui = UI_Champion_Selector_Window()
-        self.ui.setup_ui_champion_selector_window(self.window, current_window, position)
+        self.ui.setup_ui_champion_selector_window(self.window, current_window, state)
         self.window.show()
+        self.tracker = 1
 
     def setup_ui_board_widget(self, Board_Widget, main_window, state):
-
         Board_Widget.setObjectName("Board_Widget")
         Board_Widget.resize(850, 900)
         palette = QtGui.QPalette()
@@ -2278,6 +2283,7 @@ class UI_Board_Widget(QWidget):
         reply = QMessageBox.question(self, 'Window Close', 'Are you sure you want to close the window?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply == QMessageBox.Yes:
             event.accept()
+            self.window.close()
             print('Window closed')
         else:
             event.ignore()
@@ -2290,8 +2296,8 @@ class UI_Board_Widget(QWidget):
         self.user_winning_percentage.setStatusTip(_translate("Board_Widget", "Your predicted winning chance "))
         self.user_winning_percentage.setText(_translate("Board_Widget", "0%"))
 
-    def unit_clicked(self, current_win, position):
-        self.open_champion_window(current_win, position)
+    def unit_clicked(self, current_win, state):
+        self.open_champion_window(current_win, state)
         #if the position's thing has not change then dont run the prediction else the prediction of win/loss for both boards
         print("test")
 

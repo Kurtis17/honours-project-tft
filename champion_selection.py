@@ -1145,6 +1145,7 @@ class UI_Champion_Selector_Window(object):
         self.selected_level.setGeometry(QtCore.QRect(750, 80, 101, 20))
         self.selected_level.setAlignment(QtCore.Qt.AlignCenter)
         self.selected_level.setObjectName("label")
+        self.selected_level.setScaledContents(True)
         self.champion_tab.raise_()
         self.champion_name.raise_()
         self.selected_champion.raise_()
@@ -1234,24 +1235,28 @@ class UI_Champion_Selector_Window(object):
         self.selected_champion.setText(_translate("champion_level_selector", "selected champion"))
         self.selected_level.setText(_translate("champion_level_selector", "Lvl"))
 
+    tracker = 0
+
     def unit_clicked(self, image_path, champion_name):
         if self.champion_name.text() == champion_name:
-            if self.selected_level.text() == "Lvl":
-                self.selected_level.setText("Lvl 1")
-            elif self.selected_level.text() == "Lvl 1":
-                self.selected_level.setText("Lvl 2")
-            elif self.selected_level.text() == "Lvl 2":
-                self.selected_level.setText("Lvl 3")
-            elif self.selected_level.text() == "Lvl 3":
-                self.selected_level.setText("Lvl 1")
+            if self.tracker == 1:
+                self.tracker = 2
+                self.selected_level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Two.png"))
+            elif self.tracker == 2:
+                self.tracker = 3
+                self.selected_level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Three.png"))
+            elif self.tracker == 3:
+                self.tracker = 1
+                self.selected_level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/One.png"))
         else:
-            self.selected_level.setText("Lvl 1")
+            self.selected_level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/One.png"))
             self.champion_name.setText(champion_name)
             self.selected_champion.setPixmap(QtGui.QPixmap(image_path))
+            self.tracker = 1
 
     def next_clicked(self, board_window, champion_window, state):
         if self.champion_name.text() == "Name":
             print("test - worked no champion selected")
         else:
             ##self.open_item_window(board_window, champion_window, state, self.champion_name.text())
-            self.test(board_window, champion_window, self.champion_name.text(), self.selected_level.text(), state)
+            self.test(board_window, champion_window, self.champion_name.text(), self.tracker, state)
