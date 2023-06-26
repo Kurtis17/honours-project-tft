@@ -6,8 +6,7 @@ class UI_Item_Selector(object):
     def update_board(self, board_window):
         self.board_window.enemy_unit_1_1.setText("test")
 
-    def setup_ui_item_selector(self, item_selector, board_window, champion_window, selected_champion, selected_level,
-                               state):
+    def setup_ui_item_selector(self, item_selector, board_window, champion_window, selected_champion, selected_level, position, state):
         item_selector.setObjectName("item_selector")
         item_selector.resize(1084, 459)
         palette = QtGui.QPalette()
@@ -2126,7 +2125,7 @@ class UI_Item_Selector(object):
         self.ornn_button_1.setText("")
         icon104 = QtGui.QIcon()
         icon104.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/ObsidianCleaver.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/obsidian_cleaver.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_1.setIcon(icon104)
         self.ornn_button_1.setIconSize(QtCore.QSize(75, 75))
@@ -2144,7 +2143,7 @@ class UI_Item_Selector(object):
         self.ornn_button_2.setText("")
         icon105 = QtGui.QIcon()
         icon105.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/GoldCollector.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/gold_collector.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_2.setIcon(icon105)
         self.ornn_button_2.setIconSize(QtCore.QSize(75, 75))
@@ -2162,7 +2161,7 @@ class UI_Item_Selector(object):
         self.ornn_button_4.setText("")
         icon106 = QtGui.QIcon()
         icon106.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/EternalWinter.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/eternal_winter.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_4.setIcon(icon106)
         self.ornn_button_4.setIconSize(QtCore.QSize(75, 75))
@@ -2180,7 +2179,7 @@ class UI_Item_Selector(object):
         self.ornn_button_6.setText("")
         icon107 = QtGui.QIcon()
         icon107.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/RanduinsSanctum.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/randuins_sanctum.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_6.setIcon(icon107)
         self.ornn_button_6.setIconSize(QtCore.QSize(75, 75))
@@ -2198,7 +2197,7 @@ class UI_Item_Selector(object):
         self.ornn_button_5.setText("")
         icon108 = QtGui.QIcon()
         icon108.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/Manazane.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/manazane.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_5.setIcon(icon108)
         self.ornn_button_5.setIconSize(QtCore.QSize(75, 75))
@@ -2216,7 +2215,7 @@ class UI_Item_Selector(object):
         self.ornn_button_3.setText("")
         icon109 = QtGui.QIcon()
         icon109.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/DeathsDefiance.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/deaths_defiance.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_3.setIcon(icon109)
         self.ornn_button_3.setIconSize(QtCore.QSize(75, 75))
@@ -2234,7 +2233,7 @@ class UI_Item_Selector(object):
         self.ornn_button_7.setText("")
         icon110 = QtGui.QIcon()
         icon110.addPixmap(QtGui.QPixmap(
-            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/Hullcrusher.png"),
+            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/hullcrusher.png"),
                           QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_7.setIcon(icon110)
         self.ornn_button_7.setIconSize(QtCore.QSize(75, 75))
@@ -2252,7 +2251,7 @@ class UI_Item_Selector(object):
         self.ornn_button_8.setText("")
         icon111 = QtGui.QIcon()
         icon111.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/AnimaVisage.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/anima_visage.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_8.setIcon(icon111)
         self.ornn_button_8.setIconSize(QtCore.QSize(75, 75))
@@ -2270,7 +2269,7 @@ class UI_Item_Selector(object):
         self.ornn_button_9.setText("")
         icon112 = QtGui.QIcon()
         icon112.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/InfinityForce.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/infinity_force.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_9.setIcon(icon112)
         self.ornn_button_9.setIconSize(QtCore.QSize(75, 75))
@@ -2288,7 +2287,7 @@ class UI_Item_Selector(object):
         self.ornn_button_10.setText("")
         icon113 = QtGui.QIcon()
         icon113.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/ZhonyasParadox.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/zhonyas_paradox.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_10.setIcon(icon113)
         self.ornn_button_10.setIconSize(QtCore.QSize(75, 75))
@@ -2306,7 +2305,7 @@ class UI_Item_Selector(object):
         self.ornn_button_14.setText("")
         icon114 = QtGui.QIcon()
         icon114.addPixmap(QtGui.QPixmap(
-            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/TrickstersGlass.png"),
+            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/tricksters_glass.png"),
                           QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_14.setIcon(icon114)
         self.ornn_button_14.setIconSize(QtCore.QSize(75, 75))
@@ -2324,7 +2323,7 @@ class UI_Item_Selector(object):
         self.ornn_button_13.setText("")
         icon115 = QtGui.QIcon()
         icon115.addPixmap(QtGui.QPixmap(
-            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/SnipersFocus.png"),
+            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/snipers_focus.png"),
                           QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_13.setIcon(icon115)
         self.ornn_button_13.setIconSize(QtCore.QSize(75, 75))
@@ -2342,7 +2341,7 @@ class UI_Item_Selector(object):
         self.ornn_button_12.setText("")
         icon116 = QtGui.QIcon()
         icon116.addPixmap(QtGui.QPixmap(
-            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/DeathfireGrasp.png"),
+            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/deathfire_grasp.png"),
                           QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_12.setIcon(icon116)
         self.ornn_button_12.setIconSize(QtCore.QSize(75, 75))
@@ -2360,7 +2359,7 @@ class UI_Item_Selector(object):
         self.ornn_button_11.setText("")
         icon117 = QtGui.QIcon()
         icon117.addPixmap(QtGui.QPixmap(
-            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/BlacksmithsGloves.png"),
+            "C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/blacksmiths_gloves.png"),
                           QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.ornn_button_11.setIcon(icon117)
         self.ornn_button_11.setIconSize(QtCore.QSize(75, 75))
@@ -2452,7 +2451,7 @@ class UI_Item_Selector(object):
         QtCore.QMetaObject.connectSlotsByName(item_selector)
 
         self.standard_button_1.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/archangels_staff.png", "Archangel's staff"))
-        self.standard_button_2.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/bf_sword.png", "")) #BF sword?
+        self.standard_button_2.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/Bf_sword.png", "BF Sword"))
         self.standard_button_3.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/bloodthirster.png", "Bloodthirster"))
         self.standard_button_4.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/blue_buff.png", "Blue buff"))
         self.standard_button_5.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/bramble_vest.png", "Bramble Vest"))
@@ -2559,22 +2558,24 @@ class UI_Item_Selector(object):
         self.trait_button_20.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/slayer.tft_set9.png", "Slayer Emblem"))
         self.trait_button_21.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/sorcerer.tft_set9.png", "Sorcerer Emblem"))
 
-        self.ornn_button_1.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/ObsidianCleaver.png", "Obsidian Cleaver"))
-        self.ornn_button_2.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/GoldCollector.png", "Gold Collector"))
-        self.ornn_button_3.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/DeathsDefiance.png", "Death's Defiance"))
-        self.ornn_button_4.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/EternalWinter.png", "Eternal Winter"))
-        self.ornn_button_5.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/Manazane.png", "Manazane"))
-        self.ornn_button_6.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/RanduinsSanctum.png", "Randuin's Sanctum"))
-        self.ornn_button_7.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/Hullcrusher.png", "Hullcrusher"))
-        self.ornn_button_8.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/AnimaVisage.png", "Anima Visage"))
-        self.ornn_button_9.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/InfinityForce.png", "Infinity Force"))
-        self.ornn_button_10.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/ZhonyasParadox.png", "Zhonya's Paradox"))
-        self.ornn_button_11.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/BlacksmithsGloves.png", "Blacksmith's Gloves"))
-        self.ornn_button_12.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/DeathfireGrasp.png", "Deathfire Grasp"))
-        self.ornn_button_13.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/SnipersFocus.png", "Sniper's Focus"))
-        self.ornn_button_14.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/TrickstersGlass.png", "Trickster's Glass"))
+        self.ornn_button_1.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/obsidian_cleaver.png", "Obsidian Cleaver"))
+        self.ornn_button_2.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/gold_collector.png", "Gold Collector"))
+        self.ornn_button_3.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/deaths_defiance.png", "Death's Defiance"))
+        self.ornn_button_4.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/eternal_winter.png", "Eternal Winter"))
+        self.ornn_button_5.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/manazane.png", "Manazane"))
+        self.ornn_button_6.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/randuins_sanctum.png", "Randuin's Sanctum"))
+        self.ornn_button_7.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/hullcrusher.png", "Hullcrusher"))
+        self.ornn_button_8.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/anima_visage.png", "Anima Visage"))
+        self.ornn_button_9.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/infinity_force.png", "Infinity Force"))
+        self.ornn_button_10.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/zhonyas_paradox.png", "Zhonya's Paradox"))
+        self.ornn_button_11.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/blacksmiths_gloves.png", "Blacksmith's Gloves"))
+        self.ornn_button_12.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/deathfire_grasp.png", "Deathfire Grasp"))
+        self.ornn_button_13.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/snipers_focus.png", "Sniper's Focus"))
+        self.ornn_button_14.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/tricksters_glass.png", "Trickster's Glass"))
 
         self.change_button.clicked.connect(lambda: self.change_clicked())
+
+        self.next_button.clicked.connect(lambda: self.next_clicked(item_selector, board_window, champion_window, selected_champion, selected_level, position, state))
 
     def retranslateUi(self, item_selector):
         _translate = QtCore.QCoreApplication.translate
@@ -2586,6 +2587,10 @@ class UI_Item_Selector(object):
         self.item_tab.setTabText(self.item_tab.indexOf(self.Ornn), _translate("item_selector", "Ornn"))
         self.change_button.setText(_translate("item_selector", "Change Select"))
         self.current_select_label.setText(_translate("item_selector", "Currently selecting item slot 1"))
+
+    def next_clicked(self, item_selector, board_window, champion_window, selected_champion, selected_level, position, state):
+        test = position + "|" + selected_champion.lower() + "|" + str(selected_level)
+        print(test)
 
     def item_clicked(self, image_path, item_name):
         if self.current_select_label.text() == "Currently selecting item slot 1":
@@ -2635,3 +2640,4 @@ class UI_Item_Selector(object):
                                                "border: 2px solid white;\n"
                                                "}\n"
                                                "")
+

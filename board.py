@@ -1,17 +1,18 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QApplication, QWidget, QMessageBox)
 from champion_selection import UI_Champion_Selector_Window
+import os
 
 class UI_Board_Widget(QWidget):
     tracker = 0
 
-    def open_champion_window(self, current_window, state):
+    def open_champion_window(self, current_window, position, state):
         if self.tracker == 1:
             self.window.close()
 
         self.window = QtWidgets.QMainWindow()
         self.ui = UI_Champion_Selector_Window()
-        self.ui.setup_ui_champion_selector_window(self.window, current_window, state)
+        self.ui.setup_ui_champion_selector_window(self.window, current_window, position, state)
         self.window.show()
         self.tracker = 1
 
@@ -2135,10 +2136,9 @@ class UI_Board_Widget(QWidget):
         self.item_one_6.setObjectName("item_one_6")
 
         if state == "new":
-            print("newboard")
+            pass
         else:
             current_board_state = state.split(",")
-            print (current_board_state)
             for position in current_board_state:
                 if position[0] == "e":
                     position_information = position.split("|")
@@ -2153,6 +2153,9 @@ class UI_Board_Widget(QWidget):
                     elif position[1] == "4":
                         level_position = int(position[3]) + 21
                     level_label = getattr(self, f"level_{level_position}")
+                    item_one_label = getattr(self, f"item_one_{level_position}")
+                    item_two_label = getattr(self, f"item_two_{level_position}")
+                    item_three_label = getattr(self, f"item_three_{level_position}")
                 elif position[0] == "u":
                     position_information = position.split("|")
                     button = getattr(self, f"user_unit_{position[1]}_{position[3]}")
@@ -2165,6 +2168,9 @@ class UI_Board_Widget(QWidget):
                     elif position[1] == "4":
                         level_position = int(position[3]) + 49
                     level_label = getattr(self, f"level_{level_position}")
+                    item_one_label = getattr(self, f"item_one_{level_position}")
+                    item_two_label = getattr(self, f"item_two_{level_position}")
+                    item_three_label = getattr(self, f"item_three_{level_position}")
 
                 image_path = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_{position_information[1]}_mobile.tft_set9.png"
 
@@ -2179,7 +2185,74 @@ class UI_Board_Widget(QWidget):
                             self.level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Two.png"))
                     elif position_information[2] == "3":
                         self.level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Three.png"))
+
+                    if not position_information[3] == "null":
+                        remove_space = position_information[3].replace(" ","_")
+                        final_information = remove_space.replace("'","")
+                        final_information = final_information.lower()
+
+                        if "radiant" in final_information:
+                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            self.item_one.setPixmap(QtGui.QPixmap(item_one_image))
+                        elif "emblem" in final_information:
+                            embelm_path = final_information.replace("_emblem", "")
+                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            self.item_one.setPixmap(QtGui.QPixmap(item_one_image))
+                        else:
+                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+
+                            if os.path.isfile(item_one_image):
+                                self.item_one.setPixmap(QtGui.QPixmap(item_one_image))
+                            else:
+                                item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                self.item_one.setPixmap(QtGui.QPixmap(item_one_image))
+
+                    if not position_information[4] == "null":
+
+                        remove_space = position_information[4].replace(" ", "_")
+                        final_information = remove_space.replace("'", "")
+                        final_information = final_information.lower()
+
+                        if "radiant" in final_information:
+                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            self.item_two.setPixmap(QtGui.QPixmap(item_two_image))
+                        elif "emblem" in final_information:
+                            embelm_path = final_information.replace("_emblem", "")
+                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            self.item_two.setPixmap(QtGui.QPixmap(item_two_image))
+                        else:
+                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+
+                            if os.path.isfile(item_two_image):
+                                self.item_two.setPixmap(QtGui.QPixmap(item_two_image))
+                            else:
+                                item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                self.item_two.setPixmap(QtGui.QPixmap(item_two_image))
+
+                    if not position_information[5] == "null":
+
+                        remove_space = position_information[5].replace(" ", "_")
+                        final_information = remove_space.replace("'", "")
+                        final_information = final_information.lower()
+
+                        if "radiant" in final_information:
+                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            self.item_three.setPixmap(QtGui.QPixmap(item_three_image))
+                        elif "emblem" in final_information:
+                            embelm_path = final_information.replace("_emblem", "")
+                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            self.item_three.setPixmap(QtGui.QPixmap(item_three_image))
+                        else:
+                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+
+                            if os.path.isfile(item_three_image):
+                                self.item_three.setPixmap(QtGui.QPixmap(item_three_image))
+                            else:
+                                item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                self.item_three.setPixmap(QtGui.QPixmap(item_three_image))
+
                 else:
+
                     if position_information[2] == "1":
                         level_label.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/One.png"))
                     elif position_information[2] == "2":
@@ -2187,6 +2260,71 @@ class UI_Board_Widget(QWidget):
                     elif position_information[2] == "3":
                         level_label.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Three.png"))
 
+
+                    if not position_information[3] == "null":
+                        remove_space = position_information[3].replace(" ","_")
+                        final_information = remove_space.replace("'","")
+                        final_information = final_information.lower()
+
+                        if "radiant" in final_information:
+                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_one_label.setPixmap(QtGui.QPixmap(item_one_image))
+                        elif "emblem" in final_information:
+                            embelm_path = final_information.replace("_emblem", "")
+                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_one_label.setPixmap(QtGui.QPixmap(item_one_image))
+                        else:
+                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+
+                            if os.path.isfile(item_one_image):
+                                item_one_label.setPixmap(QtGui.QPixmap(item_one_image))
+                            else:
+                                item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_one_label.setPixmap(QtGui.QPixmap(item_one_image))
+
+                    if not position_information[4] == "null":
+
+                        remove_space = position_information[4].replace(" ", "_")
+                        final_information = remove_space.replace("'", "")
+                        final_information = final_information.lower()
+
+                        if "radiant" in final_information:
+                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_two_label.setPixmap(QtGui.QPixmap(item_two_image))
+                        elif "emblem" in final_information:
+                            embelm_path = final_information.replace("_emblem", "")
+                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_two_label.setPixmap(QtGui.QPixmap(item_two_image))
+                        else:
+                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+
+                            if os.path.isfile(item_two_image):
+                                item_two_label.setPixmap(QtGui.QPixmap(item_two_image))
+                            else:
+                                item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_two_label.setPixmap(QtGui.QPixmap(item_two_image))
+
+                    if not position_information[5] == "null":
+
+                        remove_space = position_information[5].replace(" ", "_")
+                        final_information = remove_space.replace("'", "")
+                        final_information = final_information.lower()
+
+                        if "radiant" in final_information:
+                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
+                        elif "emblem" in final_information:
+                            embelm_path = final_information.replace("_emblem", "")
+                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
+                        else:
+                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+
+                            if os.path.isfile(item_three_image):
+                                item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
+                            else:
+                                item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
 
         self.level.raise_()
         self.item_one.raise_()
@@ -2215,69 +2353,69 @@ class UI_Board_Widget(QWidget):
         self.retranslate_ui_board_widget(Board_Widget)
         QtCore.QMetaObject.connectSlotsByName(Board_Widget)
 
-        self.enemy_unit_1_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "1_1"))
-        self.enemy_unit_1_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "1_2"))
-        self.enemy_unit_1_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "1_3"))
-        self.enemy_unit_1_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "1_4"))
-        self.enemy_unit_1_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "1_5"))
-        self.enemy_unit_1_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "1_6"))
-        self.enemy_unit_1_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "1_7"))
+        self.enemy_unit_1_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_1", state))
+        self.enemy_unit_1_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_2", state))
+        self.enemy_unit_1_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_3", state))
+        self.enemy_unit_1_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_4", state))
+        self.enemy_unit_1_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_5", state))
+        self.enemy_unit_1_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_6", state))
+        self.enemy_unit_1_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_7", state))
 
-        self.enemy_unit_2_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "2_1"))
-        self.enemy_unit_2_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "2_2"))
-        self.enemy_unit_2_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "2_3"))
-        self.enemy_unit_2_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "2_4"))
-        self.enemy_unit_2_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "2_5"))
-        self.enemy_unit_2_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "2_6"))
-        self.enemy_unit_2_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "2_7"))
+        self.enemy_unit_2_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_1", state))
+        self.enemy_unit_2_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_2", state))
+        self.enemy_unit_2_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_3", state))
+        self.enemy_unit_2_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_4", state))
+        self.enemy_unit_2_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_5", state))
+        self.enemy_unit_2_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_6", state))
+        self.enemy_unit_2_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_7", state))
 
-        self.enemy_unit_3_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "3_1"))
-        self.enemy_unit_3_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "3_2"))
-        self.enemy_unit_3_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "3_3"))
-        self.enemy_unit_3_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "3_4"))
-        self.enemy_unit_3_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "3_5"))
-        self.enemy_unit_3_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "3_6"))
-        self.enemy_unit_3_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "3_7"))
+        self.enemy_unit_3_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_1", state))
+        self.enemy_unit_3_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_2", state))
+        self.enemy_unit_3_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_3", state))
+        self.enemy_unit_3_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_4", state))
+        self.enemy_unit_3_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_5", state))
+        self.enemy_unit_3_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_6", state))
+        self.enemy_unit_3_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_7", state))
 
-        self.enemy_unit_4_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "4_1"))
-        self.enemy_unit_4_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "4_2"))
-        self.enemy_unit_4_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "4_3"))
-        self.enemy_unit_4_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "4_4"))
-        self.enemy_unit_4_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "4_5"))
-        self.enemy_unit_4_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "4_6"))
-        self.enemy_unit_4_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "4_7"))
+        self.enemy_unit_4_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_1", state))
+        self.enemy_unit_4_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_2", state))
+        self.enemy_unit_4_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_3", state))
+        self.enemy_unit_4_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_4", state))
+        self.enemy_unit_4_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_5", state))
+        self.enemy_unit_4_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_6", state))
+        self.enemy_unit_4_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_7", state))
 
-        self.user_unit_1_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "5_1"))
-        self.user_unit_1_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "5_2"))
-        self.user_unit_1_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "5_3"))
-        self.user_unit_1_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "5_4"))
-        self.user_unit_1_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "5_5"))
-        self.user_unit_1_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "5_6"))
-        self.user_unit_1_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "5_7"))
+        self.user_unit_1_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_1", state))
+        self.user_unit_1_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_2", state))
+        self.user_unit_1_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_3", state))
+        self.user_unit_1_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_4", state))
+        self.user_unit_1_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_5", state))
+        self.user_unit_1_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_6" , state))
+        self.user_unit_1_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_7" , state))
 
-        self.user_unit_2_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "6_1"))
-        self.user_unit_2_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "6_2"))
-        self.user_unit_2_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "6_3"))
-        self.user_unit_2_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "6_4"))
-        self.user_unit_2_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "6_5"))
-        self.user_unit_2_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "6_6"))
-        self.user_unit_2_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "6_7"))
+        self.user_unit_2_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_1", state))
+        self.user_unit_2_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_2", state))
+        self.user_unit_2_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_3", state))
+        self.user_unit_2_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_4", state))
+        self.user_unit_2_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_5", state))
+        self.user_unit_2_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_6", state))
+        self.user_unit_2_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_7", state))
 
-        self.user_unit_3_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "7_1"))
-        self.user_unit_3_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "7_2"))
-        self.user_unit_3_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "7_3"))
-        self.user_unit_3_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "7_4"))
-        self.user_unit_3_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "7_5"))
-        self.user_unit_3_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "7_6"))
-        self.user_unit_3_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "7_7"))
+        self.user_unit_3_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_1", state))
+        self.user_unit_3_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_2", state))
+        self.user_unit_3_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_3", state))
+        self.user_unit_3_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_4", state))
+        self.user_unit_3_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_5", state))
+        self.user_unit_3_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_6", state))
+        self.user_unit_3_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_7", state))
 
-        self.user_unit_4_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "8_1"))
-        self.user_unit_4_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "8_2"))
-        self.user_unit_4_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "8_3"))
-        self.user_unit_4_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "8_4"))
-        self.user_unit_4_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "8_5"))
-        self.user_unit_4_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "8_6"))
-        self.user_unit_4_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "8_7"))
+        self.user_unit_4_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_1", state))
+        self.user_unit_4_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_2", state))
+        self.user_unit_4_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_3", state))
+        self.user_unit_4_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_4", state))
+        self.user_unit_4_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_5", state))
+        self.user_unit_4_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_6", state))
+        self.user_unit_4_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_7", state))
 
     def closeEvent(self, event):
         reply = QMessageBox.question(self, 'Window Close', 'Are you sure you want to close the window?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
@@ -2296,10 +2434,9 @@ class UI_Board_Widget(QWidget):
         self.user_winning_percentage.setStatusTip(_translate("Board_Widget", "Your predicted winning chance "))
         self.user_winning_percentage.setText(_translate("Board_Widget", "0%"))
 
-    def unit_clicked(self, current_win, state):
-        self.open_champion_window(current_win, state)
+    def unit_clicked(self, current_win, position, state):
+        self.open_champion_window(current_win, position, state)
         #if the position's thing has not change then dont run the prediction else the prediction of win/loss for both boards
-        print("test")
 
     def update_board(self, text):
         self.enemy_unit_1_1.setText(Text)

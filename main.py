@@ -6,7 +6,7 @@ class UI_Main_Window(object):
     def open_predictor_window(self):
         self.window = UI_Board_Widget()
         self.ui = UI_Board_Widget()
-        self.ui.setup_ui_board_widget(self.window, main_window, "e1_6|ashe|1|54|1|5,e1_1|senna|3|0|53|6,u4_4|warwick|2|42|3|0")
+        self.ui.setup_ui_board_widget(self.window, main_window, "e1_6|ashe|1|Infinity Edge Radiant|null|guardian_angel,e1_1|senna|3|Archangel's Staff Radiant|null|Noxus Emblem,u4_4|warwick|2|null|Bloodthirster|Noxus Emblem")
         self.window.show()
         main_window.hide()
 
