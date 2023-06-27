@@ -2144,6 +2144,7 @@ class UI_Board_Widget(QWidget):
         if state == "new":
             pass
         else:
+            print(state)
             current_board_state = state.split(",")
             for position in current_board_state:
                 if position[0] == "e":
@@ -2158,10 +2159,13 @@ class UI_Board_Widget(QWidget):
                         level_position = int(position[3]) + 14
                     elif position[1] == "4":
                         level_position = int(position[3]) + 21
-                    level_label = getattr(self, f"level_{level_position}")
-                    item_one_label = getattr(self, f"item_one_{level_position}")
-                    item_two_label = getattr(self, f"item_two_{level_position}")
-                    item_three_label = getattr(self, f"item_three_{level_position}")
+
+                    if not position_information[0] == "e1_1":
+                        level_label = getattr(self, f"level_{level_position}")
+                        item_one_label = getattr(self, f"item_one_{level_position}")
+                        item_two_label = getattr(self, f"item_two_{level_position}")
+                        item_three_label = getattr(self, f"item_three_{level_position}")
+
                 elif position[0] == "u":
                     position_information = position.split("|")
                     button = getattr(self, f"user_unit_{position[1]}_{position[3]}")
@@ -2173,6 +2177,7 @@ class UI_Board_Widget(QWidget):
                         level_position = int(position[3]) + 42
                     elif position[1] == "4":
                         level_position = int(position[3]) + 49
+
                     level_label = getattr(self, f"level_{level_position}")
                     item_one_label = getattr(self, f"item_one_{level_position}")
                     item_two_label = getattr(self, f"item_two_{level_position}")

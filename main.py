@@ -238,7 +238,8 @@ class UI_Main_Window(QtWidgets.QMainWindow):
         self.quit_button.setText(_translate("main_window", "Quit"))
 
     def predict_clicked(self):
-        self.open_predictor_window("e1_6|ashe|1|Infinity Edge Radiant|Rabadon's Deathcap|guardian_angel,e1_1|senna|3|Archangel's Staff Radiant|null|Noxus Emblem,u4_4|warwick|2|null|Bloodthirster|Noxus Emblem")
+        self.open_predictor_window("new")
+        ##self.open_predictor_window("e1_6|ashe|1|Infinity Edge Radiant|Rabadon's Deathcap|guardian_angel,e1_1|senna|3|Archangel's Staff Radiant|null|Noxus Emblem,u4_4|warwick|2|null|Bloodthirster|Noxus Emblem")
 
     def analysis_clicked(self):
         self.analysis_button.setText("test help")
