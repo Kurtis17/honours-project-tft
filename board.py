@@ -1,22 +1,28 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QApplication, QWidget, QMessageBox)
 from champion_selection import UI_Champion_Selector_Window
+
 import os
 
 class UI_Board_Widget(QWidget):
     tracker = 0
+    updated_state = None
 
-    def open_champion_window(self, current_window, position, state):
+    def open_champion_window(self, main_window, current_window, position, state):
         if self.tracker == 1:
             self.window.close()
 
         self.window = QtWidgets.QMainWindow()
         self.ui = UI_Champion_Selector_Window()
-        self.ui.setup_ui_champion_selector_window(self.window, current_window, position, state)
+        self.ui.setup_ui_champion_selector_window(self.window, main_window, current_window, position, state)
         self.window.show()
         self.tracker = 1
 
+    def testing(self, text):
+        self.updated_state = text
+
     def setup_ui_board_widget(self, Board_Widget, main_window, state):
+        main_window_ref = main_window
         Board_Widget.setObjectName("Board_Widget")
         Board_Widget.resize(850, 900)
         palette = QtGui.QPalette()
@@ -2353,78 +2359,84 @@ class UI_Board_Widget(QWidget):
         self.retranslate_ui_board_widget(Board_Widget)
         QtCore.QMetaObject.connectSlotsByName(Board_Widget)
 
-        self.enemy_unit_1_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_1", state))
-        self.enemy_unit_1_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_2", state))
-        self.enemy_unit_1_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_3", state))
-        self.enemy_unit_1_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_4", state))
-        self.enemy_unit_1_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_5", state))
-        self.enemy_unit_1_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_6", state))
-        self.enemy_unit_1_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e1_7", state))
+        self.enemy_unit_1_1.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e1_1", state))
+        self.enemy_unit_1_2.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e1_2", state))
+        self.enemy_unit_1_3.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e1_3", state))
+        self.enemy_unit_1_4.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e1_4", state))
+        self.enemy_unit_1_5.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e1_5", state))
+        self.enemy_unit_1_6.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e1_6", state))
+        self.enemy_unit_1_7.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e1_7", state))
 
-        self.enemy_unit_2_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_1", state))
-        self.enemy_unit_2_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_2", state))
-        self.enemy_unit_2_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_3", state))
-        self.enemy_unit_2_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_4", state))
-        self.enemy_unit_2_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_5", state))
-        self.enemy_unit_2_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_6", state))
-        self.enemy_unit_2_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e2_7", state))
+        self.enemy_unit_2_1.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e2_1", state))
+        self.enemy_unit_2_2.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e2_2", state))
+        self.enemy_unit_2_3.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e2_3", state))
+        self.enemy_unit_2_4.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e2_4", state))
+        self.enemy_unit_2_5.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e2_5", state))
+        self.enemy_unit_2_6.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e2_6", state))
+        self.enemy_unit_2_7.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e2_7", state))
 
-        self.enemy_unit_3_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_1", state))
-        self.enemy_unit_3_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_2", state))
-        self.enemy_unit_3_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_3", state))
-        self.enemy_unit_3_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_4", state))
-        self.enemy_unit_3_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_5", state))
-        self.enemy_unit_3_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_6", state))
-        self.enemy_unit_3_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e3_7", state))
+        self.enemy_unit_3_1.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e3_1", state))
+        self.enemy_unit_3_2.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e3_2", state))
+        self.enemy_unit_3_3.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e3_3", state))
+        self.enemy_unit_3_4.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e3_4", state))
+        self.enemy_unit_3_5.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e3_5", state))
+        self.enemy_unit_3_6.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e3_6", state))
+        self.enemy_unit_3_7.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e3_7", state))
 
-        self.enemy_unit_4_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_1", state))
-        self.enemy_unit_4_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_2", state))
-        self.enemy_unit_4_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_3", state))
-        self.enemy_unit_4_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_4", state))
-        self.enemy_unit_4_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_5", state))
-        self.enemy_unit_4_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_6", state))
-        self.enemy_unit_4_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "e4_7", state))
+        self.enemy_unit_4_1.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e4_1", state))
+        self.enemy_unit_4_2.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e4_2", state))
+        self.enemy_unit_4_3.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e4_3", state))
+        self.enemy_unit_4_4.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e4_4", state))
+        self.enemy_unit_4_5.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e4_5", state))
+        self.enemy_unit_4_6.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e4_6", state))
+        self.enemy_unit_4_7.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "e4_7", state))
 
-        self.user_unit_1_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_1", state))
-        self.user_unit_1_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_2", state))
-        self.user_unit_1_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_3", state))
-        self.user_unit_1_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_4", state))
-        self.user_unit_1_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_5", state))
-        self.user_unit_1_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_6" , state))
-        self.user_unit_1_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u1_7" , state))
+        self.user_unit_1_1.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u1_1", state))
+        self.user_unit_1_2.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u1_2", state))
+        self.user_unit_1_3.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u1_3", state))
+        self.user_unit_1_4.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u1_4", state))
+        self.user_unit_1_5.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u1_5", state))
+        self.user_unit_1_6.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u1_6", state))
+        self.user_unit_1_7.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u1_7", state))
 
-        self.user_unit_2_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_1", state))
-        self.user_unit_2_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_2", state))
-        self.user_unit_2_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_3", state))
-        self.user_unit_2_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_4", state))
-        self.user_unit_2_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_5", state))
-        self.user_unit_2_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_6", state))
-        self.user_unit_2_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u2_7", state))
+        self.user_unit_2_1.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u2_1", state))
+        self.user_unit_2_2.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u2_2", state))
+        self.user_unit_2_3.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u2_3", state))
+        self.user_unit_2_4.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u2_4", state))
+        self.user_unit_2_5.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u2_5", state))
+        self.user_unit_2_6.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u2_6", state))
+        self.user_unit_2_7.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u2_7", state))
 
-        self.user_unit_3_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_1", state))
-        self.user_unit_3_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_2", state))
-        self.user_unit_3_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_3", state))
-        self.user_unit_3_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_4", state))
-        self.user_unit_3_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_5", state))
-        self.user_unit_3_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_6", state))
-        self.user_unit_3_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u3_7", state))
+        self.user_unit_3_1.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u3_1", state))
+        self.user_unit_3_2.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u3_2", state))
+        self.user_unit_3_3.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u3_3", state))
+        self.user_unit_3_4.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u3_4", state))
+        self.user_unit_3_5.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u3_5", state))
+        self.user_unit_3_6.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u3_6", state))
+        self.user_unit_3_7.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u3_7", state))
 
-        self.user_unit_4_1.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_1", state))
-        self.user_unit_4_2.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_2", state))
-        self.user_unit_4_3.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_3", state))
-        self.user_unit_4_4.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_4", state))
-        self.user_unit_4_5.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_5", state))
-        self.user_unit_4_6.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_6", state))
-        self.user_unit_4_7.clicked.connect(lambda: self.unit_clicked(Board_Widget, "u4_7", state))
+        self.user_unit_4_1.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u4_1", state))
+        self.user_unit_4_2.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u4_2", state))
+        self.user_unit_4_3.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u4_3", state))
+        self.user_unit_4_4.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u4_4", state))
+        self.user_unit_4_5.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u4_5", state))
+        self.user_unit_4_6.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u4_6", state))
+        self.user_unit_4_7.clicked.connect(lambda: self.unit_clicked(main_window, Board_Widget, "u4_7", state))
 
+    """
     def closeEvent(self, event):
         reply = QMessageBox.question(self, 'Window Close', 'Are you sure you want to close the window?', QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply == QMessageBox.Yes:
             event.accept()
-            self.window.close()
+            self.close()
             print('Window closed')
         else:
             event.ignore()
+    """
+
+    def test(self, hey):
+       hey.test()
+        ##LOOK AT CHATGPT CONVO
 
     def retranslate_ui_board_widget(self, Board_Widget):
         _translate = QtCore.QCoreApplication.translate
@@ -2434,8 +2446,8 @@ class UI_Board_Widget(QWidget):
         self.user_winning_percentage.setStatusTip(_translate("Board_Widget", "Your predicted winning chance "))
         self.user_winning_percentage.setText(_translate("Board_Widget", "0%"))
 
-    def unit_clicked(self, current_win, position, state):
-        self.open_champion_window(current_win, position, state)
+    def unit_clicked(self, main_window, current_win, position, state):
+        self.open_champion_window(main_window, current_win, position, state)
         #if the position's thing has not change then dont run the prediction else the prediction of win/loss for both boards
 
     def update_board(self, text):

@@ -2,13 +2,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from board import UI_Board_Widget
 import sys
 
-class UI_Main_Window(object):
-    def open_predictor_window(self):
+class UI_Main_Window(QtWidgets.QMainWindow):
+
+    def open_predictor_window(self, state):
         self.window = UI_Board_Widget()
         self.ui = UI_Board_Widget()
-        self.ui.setup_ui_board_widget(self.window, main_window, "e1_6|ashe|1|Infinity Edge Radiant|null|guardian_angel,e1_1|senna|3|Archangel's Staff Radiant|null|Noxus Emblem,u4_4|warwick|2|null|Bloodthirster|Noxus Emblem")
-        self.window.show()
         main_window.hide()
+        self.ui.setup_ui_board_widget(self.window, main_window, state)
+        self.window.show()
 
     def setup_ui_main_window(self, main_window):
         main_window.setObjectName("main_window")
@@ -237,10 +238,13 @@ class UI_Main_Window(object):
         self.quit_button.setText(_translate("main_window", "Quit"))
 
     def predict_clicked(self):
-        self.open_predictor_window()
+        self.open_predictor_window("e1_6|ashe|1|Infinity Edge Radiant|Rabadon's Deathcap|guardian_angel,e1_1|senna|3|Archangel's Staff Radiant|null|Noxus Emblem,u4_4|warwick|2|null|Bloodthirster|Noxus Emblem")
 
     def analysis_clicked(self):
         self.analysis_button.setText("test help")
+
+    def test(self):
+        print("hey")
 
     def quit_clicked(self):
         sys.exit()

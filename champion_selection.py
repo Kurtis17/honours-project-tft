@@ -3,13 +3,13 @@ from item_selection import UI_Item_Selector
 
 class UI_Champion_Selector_Window(object):
 
-    def open_item_window(self, board_window, current_window, selected_champion, selected_level, position, state):
+    def open_item_window(self, main_window, board_window, current_window, selected_champion, selected_level, position, state):
         self.window = QtWidgets.QMainWindow()
         self.ui = UI_Item_Selector()
-        self.ui.setup_ui_item_selector(self.window, board_window, current_window, selected_champion, selected_level, position, state)
+        self.ui.setup_ui_item_selector(self.window, main_window, board_window, current_window, selected_champion, selected_level, position, state)
         self.window.show()
 
-    def setup_ui_champion_selector_window(self, champion_level_selector, board_window, position, state):
+    def setup_ui_champion_selector_window(self, champion_level_selector, main_window, board_window, position, state):
         champion_level_selector.setObjectName("champion_level_selector")
         champion_level_selector.resize(900, 425)
         palette = QtGui.QPalette()
@@ -1220,7 +1220,7 @@ class UI_Champion_Selector_Window(object):
         self.sion_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_sion_mobile.tft_set9.png", "Sion"))
         self.ryze_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_ryze_mobile.tft_set9.png", "Ryze"))
 
-        self.next_button.clicked.connect(lambda: self.next_clicked(board_window, champion_level_selector, position, state))
+        self.next_button.clicked.connect(lambda: self.next_clicked(main_window, board_window, champion_level_selector, position, state))
 
     def retranslate_ui_champion_selector_window(self, champion_level_selector):
         _translate = QtCore.QCoreApplication.translate
@@ -1254,9 +1254,9 @@ class UI_Champion_Selector_Window(object):
             self.selected_champion.setPixmap(QtGui.QPixmap(image_path))
             self.tracker = 1
 
-    def next_clicked(self, board_window, champion_window, position, state):
+    def next_clicked(self, main_window, board_window, champion_window, position, state):
         if self.champion_name.text() == "Name":
             print("test - worked no champion selected")
         else:
             ##self.open_item_window(board_window, champion_window, state, self.champion_name.text())
-            self.open_item_window(board_window, champion_window, self.champion_name.text(), self.tracker, position, state)
+            self.open_item_window(main_window, board_window, champion_window, self.champion_name.text(), self.tracker, position, state)

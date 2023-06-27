@@ -1,12 +1,17 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class UI_Item_Selector(object):
 
     def update_board(self, board_window):
         self.board_window.enemy_unit_1_1.setText("test")
 
-    def setup_ui_item_selector(self, item_selector, board_window, champion_window, selected_champion, selected_level, position, state):
+    def setup_ui_item_selector(self, item_selector, main_window, board_window, champion_window, selected_champion, selected_level, position, state):
+
+        main_window_ref = main_window
+        champion_window_ref = champion_window
+        board_window_ref = board_window
+        item_selector_ref = item_selector
+
         item_selector.setObjectName("item_selector")
         item_selector.resize(1084, 459)
         palette = QtGui.QPalette()
@@ -528,7 +533,7 @@ class UI_Item_Selector(object):
         self.standard_button_18.setText("")
         icon18 = QtGui.QIcon()
         icon18.addPixmap(
-            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/jeweled_guantlet.png"),
+            QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/jeweled_gauntlet.png"),
             QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.standard_button_18.setIcon(icon18)
         self.standard_button_18.setIconSize(QtCore.QSize(75, 75))
@@ -2469,7 +2474,7 @@ class UI_Item_Selector(object):
         self.standard_button_15.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/hextech_gunblade.png", "Hextech Gunblade"))
         self.standard_button_16.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/infinity_edge.png", "Infinity Edge"))
         self.standard_button_17.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/ionic_spark.png", "Ionic Spark"))
-        self.standard_button_18.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/jeweled_guantlet.png", "Jeweled Gauntlet"))
+        self.standard_button_18.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/jeweled_gauntlet.png", "Jeweled Gauntlet"))
         self.standard_button_19.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/last_whisper.png", "Last Whisper"))
         self.standard_button_20.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/locket_of_the_iron_solari.png", "Locket of the Iron Solari"))
         self.standard_button_21.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/morellonomicon.png", "Morellonomicon"))
@@ -2498,10 +2503,9 @@ class UI_Item_Selector(object):
         self.standard_button_44.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/zephyr.png", "Zephyr"))
         self.standard_button_47.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/zzrot_portal.png", "Zz'Rot Portal"))
 
-
         self.radiant_button_1.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/archangels_staff_radiant.png", "Archangel's Staff Radiant"))
         self.radiant_button_2.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/bloodthirster_radiant.png", "Bloodthirster Radiant"))
-        self.radiant_button_3.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/blue_buff_radiant.png", "Bluebuff Radiant"))
+        self.radiant_button_3.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/blue_buff_radiant.png", "Blue buff Radiant"))
         self.radiant_button_4.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/bramble_vest_radiant.png", "Bramble Vest Radiant"))
         self.radiant_button_5.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/chalice_of_power_radiant.png", "Chalice of Power Radiant"))
         self.radiant_button_6.clicked.connect(lambda: self.item_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/death_blade_radiant.png", "Deathblade Radiant"))
@@ -2575,7 +2579,7 @@ class UI_Item_Selector(object):
 
         self.change_button.clicked.connect(lambda: self.change_clicked())
 
-        self.next_button.clicked.connect(lambda: self.next_clicked(item_selector, board_window, champion_window, selected_champion, selected_level, position, state))
+        self.next_button.clicked.connect(lambda: self.next_clicked(item_selector_ref, main_window_ref,board_window_ref, champion_window_ref, selected_champion, selected_level, position, state))
 
     def retranslateUi(self, item_selector):
         _translate = QtCore.QCoreApplication.translate
@@ -2588,9 +2592,61 @@ class UI_Item_Selector(object):
         self.change_button.setText(_translate("item_selector", "Change Select"))
         self.current_select_label.setText(_translate("item_selector", "Currently selecting item slot 1"))
 
-    def next_clicked(self, item_selector, board_window, champion_window, selected_champion, selected_level, position, state):
-        test = position + "|" + selected_champion.lower() + "|" + str(selected_level)
-        print(test)
+    def next_clicked(self, item_selector, main_window, board_window, champion_window, selected_champion, selected_level, position, state):
+
+        if self.item_name_label_1.text() == "":
+            item_one = "null"
+        else:
+            item_one = self.item_name_label_1.text()
+
+        if self.item_name_label_2.text() == "":
+            item_two = "null"
+        else:
+            item_two = self.item_name_label_2.text()
+
+        if self.item_name_label_3.text() == "":
+            item_three = "null"
+        else:
+            item_three = self.item_name_label_3.text()
+
+        new_state = position + "|" + selected_champion.lower() + "|" + str(selected_level) + "|" + item_one + "|" + item_two + "|" + item_three
+
+        if state == "new":
+            board_window.close()
+            champion_window.close()
+
+            from board import UI_Board_Widget
+
+            self.window = UI_Board_Widget()
+            self.ui = UI_Board_Widget()
+            self.ui.setup_ui_board_widget(self.window, main_window, new_state)
+            self.window.show()
+
+        else:
+            current_state = state.split(",")
+            modified_state = None
+            for unit_informaiton in current_state:
+                taken_position = unit_informaiton.split("|")
+                if taken_position[0] == position:
+                    pass
+                else:
+                    if modified_state is None:
+                        modified_state = unit_informaiton
+                    else:
+                        modified_state = modified_state + "," + unit_informaiton
+
+            modified_state = modified_state + "," + new_state
+            board_window.close()
+            champion_window.close()
+
+            from board import UI_Board_Widget
+            print(modified_state)
+            self.window = UI_Board_Widget()
+            self.ui = UI_Board_Widget()
+            self.ui.setup_ui_board_widget(self.window, main_window, modified_state)
+            self.window.show()
+
+        item_selector.close()
 
     def item_clicked(self, image_path, item_name):
         if self.current_select_label.text() == "Currently selecting item slot 1":
