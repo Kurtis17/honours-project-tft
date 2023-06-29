@@ -1152,6 +1152,20 @@ class UI_Champion_Selector_Window(object):
         self.next_button.raise_()
         self.selected_level.raise_()
 
+        self.remove = QtWidgets.QWidget()
+        self.remove.setObjectName("remove")
+        self.none_button = QtWidgets.QPushButton(self.remove)
+        self.none_button.setGeometry(QtCore.QRect(20, 20, 82, 82))
+        self.none_button.setStyleSheet("QPushButton {\n"
+                                       "background: #a8323a;\n"
+                                       "}\n"
+                                       "\n"
+                                       "QPushButton:hover {\n"
+                                       "background: white;\n"
+                                       "}")
+        self.none_button.setText("NONE")
+        self.champion_tab.addTab(self.remove, "")
+
         self.retranslate_ui_champion_selector_window(champion_level_selector)
         self.champion_tab.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(champion_level_selector)
@@ -1220,6 +1234,8 @@ class UI_Champion_Selector_Window(object):
         self.sion_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_sion_mobile.tft_set9.png", "Sion"))
         self.ryze_button.clicked.connect(lambda: self.unit_clicked("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_ryze_mobile.tft_set9.png", "Ryze"))
 
+        self.none_button.clicked.connect(lambda: self.none_clicked())
+
         self.next_button.clicked.connect(lambda: self.next_clicked(main_window, board_window, champion_level_selector, position, state))
 
     def retranslate_ui_champion_selector_window(self, champion_level_selector):
@@ -1230,6 +1246,7 @@ class UI_Champion_Selector_Window(object):
         self.champion_tab.setTabText(self.champion_tab.indexOf(self.tier_three), _translate("champion_level_selector", "Tier 3"))
         self.champion_tab.setTabText(self.champion_tab.indexOf(self.tier_four), _translate("champion_level_selector", "Tier 4"))
         self.champion_tab.setTabText(self.champion_tab.indexOf(self.tier_five), _translate("champion_level_selector", "Tier 5"))
+        self.champion_tab.setTabText(self.champion_tab.indexOf(self.remove), _translate("champion_level_selector", "Remove"))
         self.champion_name.setText(_translate("champion_level_selector", "Name"))
         self.next_button.setText(_translate("champion_level_selector", "Next"))
         self.selected_champion.setText(_translate("champion_level_selector", "selected champion"))
@@ -1254,9 +1271,41 @@ class UI_Champion_Selector_Window(object):
             self.selected_champion.setPixmap(QtGui.QPixmap(image_path))
             self.tracker = 1
 
+    def none_clicked(self):
+        self.champion_name.setText("None")
+        self.selected_champion.setText("None")
+        self.selected_level.setText("None")
+
     def next_clicked(self, main_window, board_window, champion_window, position, state):
         if self.champion_name.text() == "Name":
             print("test - worked no champion selected")
+        elif self.champion_name.text() == "None":
+            if not state == "new":
+                current_state = state.split(",")
+                modified_state = None
+                for unit_informaiton in current_state:
+                    taken_position = unit_informaiton.split("|")
+                    if taken_position[0] == position:
+                        pass
+                    else:
+                        if modified_state is None:
+                            modified_state = unit_informaiton
+                        else:
+                            modified_state = modified_state + "," + unit_informaiton
+
+                board_window.close()
+
+                from board import UI_Board_Widget
+                self.window = UI_Board_Widget()
+                self.ui = UI_Board_Widget()
+                if modified_state is None:
+                    self.ui.setup_ui_board_widget(self.window, main_window, "new")
+                else:
+                    self.ui.setup_ui_board_widget(self.window, main_window, modified_state)
+                self.window.show()
+
+                champion_window.close()
+            else:
+                print("there is nothing to remove, board is empty")
         else:
-            ##self.open_item_window(board_window, champion_window, state, self.champion_name.text())
             self.open_item_window(main_window, board_window, champion_window, self.champion_name.text(), self.tracker, position, state)
