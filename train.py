@@ -1,16 +1,14 @@
-from sklearn.linear_model import LogisticRegression
-from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, accuracy_score, precision_score, r2_score
+import category_encoders as ce
 import joblib
 
-# Load the Iris dataset
-iris = load_iris()
-X, y = iris.data, iris.target
+binary_encoder = ce.BinaryEncoder
 
-# Create a logistic regression model
-model = LogisticRegression(max_iter=1000)
+rf_class_model = RandomForestClassifier(n_estimators=100, random_state=17)
+rf_regres_model = RandomForestRegressor(n_estimators=100, random_state=17)
 
-# Train the model
-model.fit(X, y)
-
-# Save the trained model to a file
-joblib.dump(model, 'trained_model.joblib')
+#joblib.dump(model, 'trained_model.joblib')
