@@ -2183,7 +2183,7 @@ class UI_Board_Widget(QWidget):
                     item_two_label = getattr(self, f"item_two_{level_position}")
                     item_three_label = getattr(self, f"item_three_{level_position}")
 
-                image_path = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/TFT9/CHAMPIONS/tft9_{position_information[1]}_mobile.tft_set9.png"
+                image_path = f"image/TFT9/CHAMPIONS/tft9_{position_information[1]}_mobile.tft_set9.png"
 
                 icon = QtGui.QIcon()
                 icon.addPixmap(QtGui.QPixmap(image_path), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -2191,11 +2191,11 @@ class UI_Board_Widget(QWidget):
 
                 if position_information[0] == "e1_1":
                     if position_information[2] == "1":
-                        self.level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/One.png"))
+                        self.level.setPixmap(QtGui.QPixmap("image/One.png"))
                     elif position_information[2] == "2":
-                            self.level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Two.png"))
+                            self.level.setPixmap(QtGui.QPixmap("image/Two.png"))
                     elif position_information[2] == "3":
-                        self.level.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Three.png"))
+                        self.level.setPixmap(QtGui.QPixmap("image/Three.png"))
 
                     if not position_information[3] == "null":
                         remove_space = position_information[3].replace(" ","_")
@@ -2203,19 +2203,19 @@ class UI_Board_Widget(QWidget):
                         final_information = final_information.lower()
 
                         if "radiant" in final_information:
-                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_one_image = f"image/Items/radiant/{final_information}.png"
                             self.item_one.setPixmap(QtGui.QPixmap(item_one_image))
                         elif "emblem" in final_information:
                             embelm_path = final_information.replace("_emblem", "")
-                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_one_image = f"image/Items/trait/{embelm_path}.tft_set9.png"
                             self.item_one.setPixmap(QtGui.QPixmap(item_one_image))
                         else:
-                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+                            item_one_image = f"image/Items/standard/{final_information}.png"
 
                             if os.path.isfile(item_one_image):
                                 self.item_one.setPixmap(QtGui.QPixmap(item_one_image))
                             else:
-                                item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_one_image = f"image/Items/ornn/{final_information}.png"
                                 self.item_one.setPixmap(QtGui.QPixmap(item_one_image))
 
                     if not position_information[4] == "null":
@@ -2225,19 +2225,19 @@ class UI_Board_Widget(QWidget):
                         final_information = final_information.lower()
 
                         if "radiant" in final_information:
-                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_two_image = f"image/Items/radiant/{final_information}.png"
                             self.item_two.setPixmap(QtGui.QPixmap(item_two_image))
                         elif "emblem" in final_information:
                             embelm_path = final_information.replace("_emblem", "")
-                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_two_image = f"image/Items/trait/{embelm_path}.tft_set9.png"
                             self.item_two.setPixmap(QtGui.QPixmap(item_two_image))
                         else:
-                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+                            item_two_image = f"image/Items/standard/{final_information}.png"
 
                             if os.path.isfile(item_two_image):
                                 self.item_two.setPixmap(QtGui.QPixmap(item_two_image))
                             else:
-                                item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_two_image = f"image/Items/ornn/{final_information}.png"
                                 self.item_two.setPixmap(QtGui.QPixmap(item_two_image))
 
                     if not position_information[5] == "null":
@@ -2247,29 +2247,29 @@ class UI_Board_Widget(QWidget):
                         final_information = final_information.lower()
 
                         if "radiant" in final_information:
-                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_three_image = f"image/Items/radiant/{final_information}.png"
                             self.item_three.setPixmap(QtGui.QPixmap(item_three_image))
                         elif "emblem" in final_information:
                             embelm_path = final_information.replace("_emblem", "")
-                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_three_image = f"image/Items/trait/{embelm_path}.tft_set9.png"
                             self.item_three.setPixmap(QtGui.QPixmap(item_three_image))
                         else:
-                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+                            item_three_image = f"image/Items/standard/{final_information}.png"
 
                             if os.path.isfile(item_three_image):
                                 self.item_three.setPixmap(QtGui.QPixmap(item_three_image))
                             else:
-                                item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_three_image = f"image/Items/ornn/{final_information}.png"
                                 self.item_three.setPixmap(QtGui.QPixmap(item_three_image))
 
                 else:
 
                     if position_information[2] == "1":
-                        level_label.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/One.png"))
+                        level_label.setPixmap(QtGui.QPixmap("image/One.png"))
                     elif position_information[2] == "2":
-                        level_label.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Two.png"))
+                        level_label.setPixmap(QtGui.QPixmap("image/Two.png"))
                     elif position_information[2] == "3":
-                        level_label.setPixmap(QtGui.QPixmap("C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Three.png"))
+                        level_label.setPixmap(QtGui.QPixmap("image/Three.png"))
 
 
                     if not position_information[3] == "null":
@@ -2278,19 +2278,19 @@ class UI_Board_Widget(QWidget):
                         final_information = final_information.lower()
 
                         if "radiant" in final_information:
-                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_one_image = f"image/Items/radiant/{final_information}.png"
                             item_one_label.setPixmap(QtGui.QPixmap(item_one_image))
                         elif "emblem" in final_information:
                             embelm_path = final_information.replace("_emblem", "")
-                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_one_image = f"image/Items/trait/{embelm_path}.tft_set9.png"
                             item_one_label.setPixmap(QtGui.QPixmap(item_one_image))
                         else:
-                            item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+                            item_one_image = f"image/Items/standard/{final_information}.png"
 
                             if os.path.isfile(item_one_image):
                                 item_one_label.setPixmap(QtGui.QPixmap(item_one_image))
                             else:
-                                item_one_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_one_image = f"image/Items/ornn/{final_information}.png"
                                 item_one_label.setPixmap(QtGui.QPixmap(item_one_image))
 
                     if not position_information[4] == "null":
@@ -2300,19 +2300,19 @@ class UI_Board_Widget(QWidget):
                         final_information = final_information.lower()
 
                         if "radiant" in final_information:
-                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_two_image = f"image/Items/radiant/{final_information}.png"
                             item_two_label.setPixmap(QtGui.QPixmap(item_two_image))
                         elif "emblem" in final_information:
                             embelm_path = final_information.replace("_emblem", "")
-                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_two_image = f"image/Items/trait/{embelm_path}.tft_set9.png"
                             item_two_label.setPixmap(QtGui.QPixmap(item_two_image))
                         else:
-                            item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+                            item_two_image = f"image/Items/standard/{final_information}.png"
 
                             if os.path.isfile(item_two_image):
                                 item_two_label.setPixmap(QtGui.QPixmap(item_two_image))
                             else:
-                                item_two_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_two_image = f"image/Items/ornn/{final_information}.png"
                                 item_two_label.setPixmap(QtGui.QPixmap(item_two_image))
 
                     if not position_information[5] == "null":
@@ -2322,19 +2322,19 @@ class UI_Board_Widget(QWidget):
                         final_information = final_information.lower()
 
                         if "radiant" in final_information:
-                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/radiant/{final_information}.png"
+                            item_three_image = f"image/Items/radiant/{final_information}.png"
                             item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
                         elif "emblem" in final_information:
                             embelm_path = final_information.replace("_emblem", "")
-                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/trait/{embelm_path}.tft_set9.png"
+                            item_three_image = f"image/Items/trait/{embelm_path}.tft_set9.png"
                             item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
                         else:
-                            item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/standard/{final_information}.png"
+                            item_three_image = f"image/Items/standard/{final_information}.png"
 
                             if os.path.isfile(item_three_image):
                                 item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
                             else:
-                                item_three_image = f"C:/Uni/Year 4/Semester 1/Honour\'s Project/image/Items/ornn/{final_information}.png"
+                                item_three_image = f"image/Items/ornn/{final_information}.png"
                                 item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
 
         self.level.raise_()
