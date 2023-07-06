@@ -1299,9 +1299,9 @@ class UI_Champion_Selector_Window(object):
                 self.window = UI_Board_Widget()
                 self.ui = UI_Board_Widget()
                 if modified_state is None:
-                    self.ui.setup_ui_board_widget(self.window, main_window, "new")
+                    self.ui.setup_ui_board_widget(self.window, main_window, "new", "update")
                 else:
-                    self.ui.setup_ui_board_widget(self.window, main_window, modified_state)
+                    self.ui.setup_ui_board_widget(self.window, main_window, modified_state, "update")
                 self.window.show()
 
                 champion_window.close()

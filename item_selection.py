@@ -167,6 +167,22 @@ class UI_Item_Selector(object):
                                        "}")
         self.next_button.setIconSize(QtCore.QSize(75, 75))
         self.next_button.setObjectName("next_button")
+        self.predict_button = QtWidgets.QPushButton(item_selector)
+        self.predict_button.setGeometry(QtCore.QRect(960, 400, 101, 41))
+        self.predict_button.setStyleSheet("QPushButton {\n"
+                                       "color: white;\n"
+                                       "border-radius: 20px;\n"
+                                       "background: qradialgradient(\n"
+                                       "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                       "radius: 1.35, stop: 0 #123040, stop: 1 #123040);\n"
+                                       "}\n"
+                                       "QPushButton:hover {\n"
+                                       "background: qradialgradient(\n"
+                                       "cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+                                       "radius: 1.35, stop: 0 #195778, stop: 1 #195778);\n"
+                                       "}")
+        self.predict_button.setIconSize(QtCore.QSize(75, 75))
+        self.predict_button.setObjectName("predict_button")
         self.selected_item_1 = QtWidgets.QLabel(item_selector)
         self.selected_item_1.setGeometry(QtCore.QRect(760, 160, 82, 82))
         self.selected_item_1.setAutoFillBackground(False)
@@ -2442,6 +2458,7 @@ class UI_Item_Selector(object):
         self.item_name_label_3.setWordWrap(True)
         self.selected_item_1.raise_()
         self.next_button.raise_()
+        self.predict_button.raise_()
         self.item_tab.raise_()
         self.selected_item_2.raise_()
         self.selected_item_3.raise_()
@@ -2579,12 +2596,14 @@ class UI_Item_Selector(object):
 
         self.change_button.clicked.connect(lambda: self.change_clicked())
 
-        self.next_button.clicked.connect(lambda: self.next_clicked(item_selector_ref, main_window_ref,board_window_ref, champion_window_ref, selected_champion, selected_level, position, state))
+        self.next_button.clicked.connect(lambda: self.next_clicked(item_selector_ref, main_window_ref,board_window_ref, champion_window_ref, selected_champion, selected_level, position, state, "update"))
+        self.predict_button.clicked.connect(lambda: self.next_clicked(item_selector_ref, main_window_ref, board_window_ref, champion_window_ref, selected_champion, selected_level, position, state, "predict"))
 
     def retranslateUi(self, item_selector):
         _translate = QtCore.QCoreApplication.translate
         item_selector.setWindowTitle(_translate("item_selector", "Item Selection"))
-        self.next_button.setText(_translate("item_selector", "Next"))
+        self.next_button.setText(_translate("item_selector", "Only Update Board"))
+        self.predict_button.setText(_translate("item_selector", "Update and Predict"))
         self.item_tab.setTabText(self.item_tab.indexOf(self.standard), _translate("item_selector", "Standard"))
         self.item_tab.setTabText(self.item_tab.indexOf(self.Radiant), _translate("item_selector", "Radiant"))
         self.item_tab.setTabText(self.item_tab.indexOf(self.trait), _translate("item_selector", "Trait"))
@@ -2592,7 +2611,7 @@ class UI_Item_Selector(object):
         self.change_button.setText(_translate("item_selector", "Change Select"))
         self.current_select_label.setText(_translate("item_selector", "Currently selecting item slot 1"))
 
-    def next_clicked(self, item_selector, main_window, board_window, champion_window, selected_champion, selected_level, position, state):
+    def next_clicked(self, item_selector, main_window, board_window, champion_window, selected_champion, selected_level, position, state, option):
 
         if self.item_name_label_1.text() == "":
             item_one = "null"
@@ -2619,7 +2638,7 @@ class UI_Item_Selector(object):
 
             self.window = UI_Board_Widget()
             self.ui = UI_Board_Widget()
-            self.ui.setup_ui_board_widget(self.window, main_window, new_state)
+            self.ui.setup_ui_board_widget(self.window, main_window, new_state, option)
             self.window.show()
 
         else:
@@ -2642,7 +2661,7 @@ class UI_Item_Selector(object):
             from board import UI_Board_Widget
             self.window = UI_Board_Widget()
             self.ui = UI_Board_Widget()
-            self.ui.setup_ui_board_widget(self.window, main_window, modified_state)
+            self.ui.setup_ui_board_widget(self.window, main_window, modified_state, option)
             self.window.show()
 
         item_selector.close()

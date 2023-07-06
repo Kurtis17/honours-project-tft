@@ -4,11 +4,11 @@ import sys
 
 class UI_Main_Window(QtWidgets.QMainWindow):
 
-    def open_predictor_window(self, state):
+    def open_predictor_window(self, state, option):
         self.window = UI_Board_Widget()
         self.ui = UI_Board_Widget()
         main_window.hide()
-        self.ui.setup_ui_board_widget(self.window, main_window, state)
+        self.ui.setup_ui_board_widget(self.window, main_window, state, option)
         self.window.show()
 
     def setup_ui_main_window(self, main_window):
@@ -238,7 +238,7 @@ class UI_Main_Window(QtWidgets.QMainWindow):
         self.quit_button.setText(_translate("main_window", "Quit"))
 
     def predict_clicked(self):
-        self.open_predictor_window("new")
+        self.open_predictor_window("new", "update")
         ##self.open_predictor_window("e1_6|ashe|1|Infinity Edge Radiant|Rabadon's Deathcap|guardian_angel,e1_1|senna|3|Archangel's Staff Radiant|null|Noxus Emblem,u4_4|warwick|2|null|Bloodthirster|Noxus Emblem")
 
     def analysis_clicked(self):

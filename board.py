@@ -21,7 +21,7 @@ class UI_Board_Widget(QWidget):
     def testing(self, text):
         self.updated_state = text
 
-    def setup_ui_board_widget(self, Board_Widget, main_window, state):
+    def setup_ui_board_widget(self, Board_Widget, main_window, state, option):
         main_window_ref = main_window
         Board_Widget.setObjectName("Board_Widget")
         Board_Widget.resize(850, 900)
@@ -2346,118 +2346,122 @@ class UI_Board_Widget(QWidget):
                                 item_three_image = f"image/Items/ornn/{final_information}.png"
                                 item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
 
-            enenmy_board = [
-                ["null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",]
-                ]
+            if option == "predict":
 
-            user_board = [
-                ["null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",
-                 "null", "null", "null", "null", "null",]
-                ]
+                enenmy_board = [
+                    ["null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",]
+                    ]
 
-            def classification_prediction(data):
-                loaded_model_classfication = joblib.load('test.joblib')
-                loaded_encoder = joblib.load('encoder.joblib')
-                loaded_scaler = joblib.load('scaler.joblib')
+                user_board = [
+                    ["null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",
+                    "null", "null", "null", "null", "null",]
+                    ]
 
-                y = loaded_encoder.transform(data)
-                prediction = loaded_model_classfication.predict(y)
+                def classification_prediction(data):
+                    loaded_model_classfication = joblib.load('test.joblib')
+                    loaded_encoder = joblib.load('encoder.joblib')
+                    loaded_scaler = joblib.load('scaler.joblib')
 
-                return prediction
+                    y = loaded_encoder.transform(data)
+                    prediction = loaded_model_classfication.predict(y)
 
-            def regression_prediction(data):
-                loaded_model_regression = joblib.load('svm_trained_model.joblib')
-                loaded_encoder = joblib.load('encoder.joblib')
-                loaded_scaler = joblib.load('scaler.joblib')
+                    return prediction
 
-                y = loaded_encoder.transform(data)
-                y = loaded_scaler.transform(y)
-                prediction = loaded_model_regression.predict(y)
+                def regression_prediction(data):
+                    loaded_model_regression = joblib.load('svm_trained_model.joblib')
+                    loaded_encoder = joblib.load('encoder.joblib')
+                    loaded_scaler = joblib.load('scaler.joblib')
 
-                return prediction
+                    y = loaded_encoder.transform(data)
+                    y = loaded_scaler.transform(y)
+                    prediction = loaded_model_regression.predict(y)
 
-            enemy_class_score = 8
-            user_class_score = 8
-            enemy_regres_score = 8
-            user_regres_score = 8
+                    return prediction
 
-            if enemy is not None:
-                enemy_list = enemy.split(",")
-                enemy_adjuster = 0
-                for unit in enemy_list:
-                    unit_detail = unit.split("|")
-                    enenmy_board[0][0 + enemy_adjuster] = unit_detail[1].capitalize()
-                    enenmy_board[0][1 + enemy_adjuster] = unit_detail[3].replace(" ", "").replace("'", "").replace("-",
+                enemy_class_score = 8
+                user_class_score = 8
+                enemy_regres_score = 8
+                user_regres_score = 8
+
+                if enemy is not None:
+                    enemy_list = enemy.split(",")
+                    enemy_adjuster = 0
+                    for unit in enemy_list:
+                        unit_detail = unit.split("|")
+                        enenmy_board[0][0 + enemy_adjuster] = unit_detail[1].capitalize()
+                        enenmy_board[0][1 + enemy_adjuster] = unit_detail[3].replace(" ", "").replace("'", "").replace("-",
                                                                                                                    "")
-                    enenmy_board[0][2 + enemy_adjuster] = unit_detail[4].replace(" ", "").replace("'", "").replace("-",
+                        enenmy_board[0][2 + enemy_adjuster] = unit_detail[4].replace(" ", "").replace("'", "").replace("-",
                                                                                                                    "")
-                    enenmy_board[0][3 + enemy_adjuster] = unit_detail[5].replace(" ", "").replace("'", "").replace("-",
+                        enenmy_board[0][3 + enemy_adjuster] = unit_detail[5].replace(" ", "").replace("'", "").replace("-",
                                                                                                                    "")
-                    enenmy_board[0][4 + enemy_adjuster] = int(unit_detail[2])
-                    enemy_adjuster = enemy_adjuster + 5
+                        enenmy_board[0][4 + enemy_adjuster] = int(unit_detail[2])
+                        enemy_adjuster = enemy_adjuster + 5
 
-                enemy_class_score = classification_prediction(enenmy_board)
-                enemy_regres_score = regression_prediction(user_board)
+                    enemy_class_score = classification_prediction(enenmy_board)
+                    enemy_regres_score = regression_prediction(user_board)
 
-            if user is not None:
-                user_list = user.split(",")
-                user_adjuster = 0
-                for unit in user_list:
-                    unit_detail = unit.split("|")
-                    user_board[0][0 + user_adjuster] = unit_detail[1].capitalize()
-                    user_board[0][1 + user_adjuster] = unit_detail[3].replace(" ", "").replace("'", "").replace("-", "")
-                    user_board[0][2 + user_adjuster] = unit_detail[4].replace(" ", "").replace("'", "").replace("-", "")
-                    user_board[0][3 + user_adjuster] = unit_detail[5].replace(" ", "").replace("'", "").replace("-", "")
-                    user_board[0][4 + user_adjuster] = int(unit_detail[2])
-                    user_adjuster = user_adjuster + 5
+                if user is not None:
+                    user_list = user.split(",")
+                    user_adjuster = 0
+                    for unit in user_list:
+                        unit_detail = unit.split("|")
+                        user_board[0][0 + user_adjuster] = unit_detail[1].capitalize()
+                        user_board[0][1 + user_adjuster] = unit_detail[3].replace(" ", "").replace("'", "").replace("-", "")
+                        user_board[0][2 + user_adjuster] = unit_detail[4].replace(" ", "").replace("'", "").replace("-", "")
+                        user_board[0][3 + user_adjuster] = unit_detail[5].replace(" ", "").replace("'", "").replace("-", "")
+                        user_board[0][4 + user_adjuster] = int(unit_detail[2])
+                        user_adjuster = user_adjuster + 5
 
-                user_class_score = classification_prediction(user_board)
-                user_regres_score = regression_prediction(user_board)
+                    user_class_score = classification_prediction(user_board)
+                    user_regres_score = regression_prediction(user_board)
 
-            if enemy_class_score == user_class_score:
-                self.user_win_indicator.setText("Draw")
-                self.enemy_win_indicator.setText("Draw")
-                print("Classification: Draw")
-            elif enemy_class_score < user_class_score:
-                self.user_win_indicator.setText("Lose")
-                self.enemy_win_indicator.setText("Win")
-                print("Classification: Enemy Win")
-            elif enemy_class_score > user_class_score:
-                self.user_win_indicator.setText("Win")
-                self.enemy_win_indicator.setText("Lose")
-                print("Classification: User Win")
+                if enemy_class_score == user_class_score:
+                    self.user_win_indicator.setText("Draw")
+                    self.enemy_win_indicator.setText("Draw")
+                    print("Classification: Draw")
+                elif enemy_class_score < user_class_score:
+                    self.user_win_indicator.setText("Lose")
+                    self.enemy_win_indicator.setText("Win")
+                    print("Classification: Enemy Win")
+                elif enemy_class_score > user_class_score:
+                    self.user_win_indicator.setText("Win")
+                    self.enemy_win_indicator.setText("Lose")
+                    print("Classification: User Win")
 
-            if enemy_regres_score == user_regres_score:
-                self.user_win_indicator.setText("Draw")
-                self.enemy_win_indicator.setText("Draw")
-                print("Regression: Draw")
-            elif enemy_regres_score < user_regres_score:
-                self.user_win_indicator.setText("Lose")
-                self.enemy_win_indicator.setText("Win")
-                print("Regression: Enemy Win")
-            elif enemy_regres_score > user_regres_score:
-                self.user_win_indicator.setText("Win")
-                self.enemy_win_indicator.setText("Lose")
-                print("Regression: User Win")
+                if enemy_regres_score == user_regres_score:
+                    self.user_win_indicator.setText("Draw")
+                    self.enemy_win_indicator.setText("Draw")
+                    print("Regression: Draw")
+                elif enemy_regres_score < user_regres_score:
+                    self.user_win_indicator.setText("Lose")
+                    self.enemy_win_indicator.setText("Win")
+                    print("Regression: Enemy Win")
+                elif enemy_regres_score > user_regres_score:
+                    self.user_win_indicator.setText("Win")
+                    self.enemy_win_indicator.setText("Lose")
+                    print("Regression: User Win")
 
-            print("---------------------------------------------------------")
+                print("---------------------------------------------------------")
+            elif option == "update":
+                pass
 
         self.level.raise_()
         self.item_one.raise_()
