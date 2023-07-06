@@ -2640,7 +2640,6 @@ class UI_Item_Selector(object):
             champion_window.close()
 
             from board import UI_Board_Widget
-            print(modified_state)
             self.window = UI_Board_Widget()
             self.ui = UI_Board_Widget()
             self.ui.setup_ui_board_widget(self.window, main_window, modified_state)

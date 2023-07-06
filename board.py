@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import (QApplication, QWidget, QMessageBox)
 from champion_selection import UI_Champion_Selector_Window
-
+import joblib
 import os
 
 class UI_Board_Widget(QWidget):
@@ -1475,12 +1475,12 @@ class UI_Board_Widget(QWidget):
         self.level_41.setText("")
         self.level_41.setScaledContents(True)
         self.level_41.setObjectName("level_41")
-        self.enemy_winning_percentage = QtWidgets.QLabel(Board_Widget)
-        self.enemy_winning_percentage.setGeometry(QtCore.QRect(780, 10, 48, 13))
-        self.enemy_winning_percentage.setStyleSheet("color: white;")
-        self.enemy_winning_percentage.setAlignment(
+        self.enemy_win_indicator = QtWidgets.QLabel(Board_Widget)
+        self.enemy_win_indicator.setGeometry(QtCore.QRect(780, 10, 48, 13))
+        self.enemy_win_indicator.setStyleSheet("color: white;")
+        self.enemy_win_indicator.setAlignment(
             QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
-        self.enemy_winning_percentage.setObjectName("enemy_winning_percentage")
+        self.enemy_win_indicator.setObjectName("enemy_win_indicator")
         self.level_27 = QtWidgets.QLabel(Board_Widget)
         self.level_27.setEnabled(True)
         self.level_27.setGeometry(QtCore.QRect(590, 340, 40, 15))
@@ -1690,12 +1690,12 @@ class UI_Board_Widget(QWidget):
         self.item_three_39.setText("")
         self.item_three_39.setScaledContents(True)
         self.item_three_39.setObjectName("item_three_39")
-        self.user_winning_percentage = QtWidgets.QLabel(Board_Widget)
-        self.user_winning_percentage.setGeometry(QtCore.QRect(780, 460, 47, 13))
-        self.user_winning_percentage.setStyleSheet("color: white;")
-        self.user_winning_percentage.setAlignment(
+        self.user_win_indicator = QtWidgets.QLabel(Board_Widget)
+        self.user_win_indicator.setGeometry(QtCore.QRect(780, 460, 47, 13))
+        self.user_win_indicator.setStyleSheet("color: white;")
+        self.user_win_indicator.setAlignment(
             QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
-        self.user_winning_percentage.setObjectName("user_winning_percentage")
+        self.user_win_indicator.setObjectName("user_win_indicator")
         self.enemy_unit_4_1 = QtWidgets.QPushButton(Board_Widget)
         self.enemy_unit_4_1.setGeometry(QtCore.QRect(70, 350, 82, 82))
         self.enemy_unit_4_1.setStyleSheet("QPushButton{\n"
@@ -2144,10 +2144,15 @@ class UI_Board_Widget(QWidget):
         if state == "new":
             pass
         else:
-            print(state)
             current_board_state = state.split(",")
+            enemy = None
+            user = None
             for position in current_board_state:
                 if position[0] == "e":
+                    if enemy == None:
+                        enemy = position
+                    else:
+                        enemy = enemy + "," + position
                     position_information = position.split("|")
                     button = getattr(self, f"enemy_unit_{position[1]}_{position[3]}")
                     if position[1] == "1":
@@ -2167,6 +2172,10 @@ class UI_Board_Widget(QWidget):
                         item_three_label = getattr(self, f"item_three_{level_position}")
 
                 elif position[0] == "u":
+                    if user == None:
+                        user = position
+                    else:
+                        user = user + "," + position
                     position_information = position.split("|")
                     button = getattr(self, f"user_unit_{position[1]}_{position[3]}")
                     if position[1] == "1":
@@ -2337,6 +2346,119 @@ class UI_Board_Widget(QWidget):
                                 item_three_image = f"image/Items/ornn/{final_information}.png"
                                 item_three_label.setPixmap(QtGui.QPixmap(item_three_image))
 
+            enenmy_board = [
+                ["null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",]
+                ]
+
+            user_board = [
+                ["null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",
+                 "null", "null", "null", "null", "null",]
+                ]
+
+            def classification_prediction(data):
+                loaded_model_classfication = joblib.load('test.joblib')
+                loaded_encoder = joblib.load('encoder.joblib')
+                loaded_scaler = joblib.load('scaler.joblib')
+
+                y = loaded_encoder.transform(data)
+                prediction = loaded_model_classfication.predict(y)
+
+                return prediction
+
+            def regression_prediction(data):
+                loaded_model_regression = joblib.load('svm_trained_model.joblib')
+                loaded_encoder = joblib.load('encoder.joblib')
+                loaded_scaler = joblib.load('scaler.joblib')
+
+                y = loaded_encoder.transform(data)
+                y = loaded_scaler.transform(y)
+                prediction = loaded_model_regression.predict(y)
+
+                return prediction
+
+            enemy_class_score = 8
+            user_class_score = 8
+            enemy_regres_score = 8
+            user_regres_score = 8
+
+            if enemy is not None:
+                enemy_list = enemy.split(",")
+                enemy_adjuster = 0
+                for unit in enemy_list:
+                    unit_detail = unit.split("|")
+                    enenmy_board[0][0 + enemy_adjuster] = unit_detail[1].capitalize()
+                    enenmy_board[0][1 + enemy_adjuster] = unit_detail[3].replace(" ", "").replace("'", "").replace("-",
+                                                                                                                   "")
+                    enenmy_board[0][2 + enemy_adjuster] = unit_detail[4].replace(" ", "").replace("'", "").replace("-",
+                                                                                                                   "")
+                    enenmy_board[0][3 + enemy_adjuster] = unit_detail[5].replace(" ", "").replace("'", "").replace("-",
+                                                                                                                   "")
+                    enenmy_board[0][4 + enemy_adjuster] = int(unit_detail[2])
+                    enemy_adjuster = enemy_adjuster + 5
+
+                enemy_class_score = classification_prediction(enenmy_board)
+                enemy_regres_score = regression_prediction(user_board)
+
+            if user is not None:
+                user_list = user.split(",")
+                user_adjuster = 0
+                for unit in user_list:
+                    unit_detail = unit.split("|")
+                    user_board[0][0 + user_adjuster] = unit_detail[1].capitalize()
+                    user_board[0][1 + user_adjuster] = unit_detail[3].replace(" ", "").replace("'", "").replace("-", "")
+                    user_board[0][2 + user_adjuster] = unit_detail[4].replace(" ", "").replace("'", "").replace("-", "")
+                    user_board[0][3 + user_adjuster] = unit_detail[5].replace(" ", "").replace("'", "").replace("-", "")
+                    user_board[0][4 + user_adjuster] = int(unit_detail[2])
+                    user_adjuster = user_adjuster + 5
+
+                user_class_score = classification_prediction(user_board)
+                user_regres_score = regression_prediction(user_board)
+
+            if enemy_class_score == user_class_score:
+                self.user_win_indicator.setText("Draw")
+                self.enemy_win_indicator.setText("Draw")
+                print("Classification: Draw")
+            elif enemy_class_score < user_class_score:
+                self.user_win_indicator.setText("Lose")
+                self.enemy_win_indicator.setText("Win")
+                print("Classification: Enemy Win")
+            elif enemy_class_score > user_class_score:
+                self.user_win_indicator.setText("Win")
+                self.enemy_win_indicator.setText("Lose")
+                print("Classification: User Win")
+
+            if enemy_regres_score == user_regres_score:
+                self.user_win_indicator.setText("Draw")
+                self.enemy_win_indicator.setText("Draw")
+                print("Regression: Draw")
+            elif enemy_regres_score < user_regres_score:
+                self.user_win_indicator.setText("Lose")
+                self.enemy_win_indicator.setText("Win")
+                print("Regression: Enemy Win")
+            elif enemy_regres_score > user_regres_score:
+                self.user_win_indicator.setText("Win")
+                self.enemy_win_indicator.setText("Lose")
+                print("Regression: User Win")
+
+            print("---------------------------------------------------------")
+
         self.level.raise_()
         self.item_one.raise_()
         self.item_two.raise_()
@@ -2357,6 +2479,7 @@ class UI_Board_Widget(QWidget):
         for i in range(2,56):
             label_three = getattr(self, f"item_three_{i}")
             label_three.raise_()
+
 
         self.retranslate_ui_board_widget(Board_Widget)
         QtCore.QMetaObject.connectSlotsByName(Board_Widget)
@@ -2439,17 +2562,11 @@ class UI_Board_Widget(QWidget):
             event.ignore()
     """
 
-    def test(self, hey):
-       hey.test()
-        ##LOOK AT CHATGPT CONVO
-
     def retranslate_ui_board_widget(self, Board_Widget):
         _translate = QtCore.QCoreApplication.translate
         Board_Widget.setWindowTitle(_translate("Board_Widget", "Board"))
-        self.enemy_winning_percentage.setStatusTip(_translate("Board_Widget", "Enemy\'s predicted winning chance"))
-        self.enemy_winning_percentage.setText(_translate("Board_Widget", "0%"))
-        self.user_winning_percentage.setStatusTip(_translate("Board_Widget", "Your predicted winning chance "))
-        self.user_winning_percentage.setText(_translate("Board_Widget", "0%"))
+        self.enemy_win_indicator.setStatusTip(_translate("Board_Widget", "Enemy\'s prediction"))
+        self.user_win_indicator.setStatusTip(_translate("Board_Widget", "Your prediction"))
 
     def unit_clicked(self, main_window, current_win, position, state):
         self.open_champion_window(main_window, current_win, position, state)
